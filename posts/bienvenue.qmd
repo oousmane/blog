@@ -42,7 +42,7 @@ La notion de reproductibilité[^2] et d'open source sera de mise
 . C'est le début d'une longue et belle histoire
 . Malgré mes occupations actuelles qui me bouffent énormément de temps, un créneau sera trouvé afin de partager et d'apprendre ensemble de nouvelles et belles choses
 . Merci d'être là, nous sommes ensemble
-. Let's Go
+. En avant pour de nouvelles aventures toutes passionnantes les unes des autres
 .
 
 [^1]: \"tidyverse\", contraction de \"tidy\" et de \"universe\", c\'est un **univers bien rangé** si l\'on traduit mot à mot.
