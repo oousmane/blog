@@ -3,8 +3,16 @@ project:
   output-dir: docs
 lang: fr
 
+
 website:
   title: "Blog personel"
+  cookie-consent:
+   style: simple
+   type: express
+  # comments: 
+  #  utterances:
+  #    repo: oousmane/cdc-website
+  #    label: Commentaires
   repo-url: https://github.com/oousmane/quarto-blog
   open-graph: true
   twitter-card:
@@ -14,9 +22,11 @@ website:
     background: "#eeeeee"
     logo: logo-circle.jpg
     right:
-      - about.qmd
+      - text: Ousmane
+        href: about.qmd
       - text: CV
         href: CV.pdf
+      - contact.qmd
       - icon: twitter
         aria-label: twitter
         href: https://twitter.com/oousmane_11
@@ -26,7 +36,7 @@ website:
       - icon: facebook
         aria-label: facebook
         href: https://www.facebook.com/oousmane.aly
-        
+     
   page-footer: 
    left: |
     Content {{< fa brands creative-commons >}} 2022 by Ousmane Ouedraogo <br>
@@ -36,7 +46,7 @@ website:
    right: |
     Made with {{< fa brands r-project >}} and [Quarto](https://quarto.org/)<br>
     [View the source at {{< fa brands github >}} GitHub](https://github.com/oousmane/quarto-blog)
-
+    
 format:
   html:
     theme: ember.scss

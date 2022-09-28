@@ -1,0 +1,30 @@
+---
+title: "Me Contacter"
+description: "Si vous désirez me contacter à propos d'opportunités de travailler ensemble ou de demandes de tutorat, freelance,bien vouloir remplir ce formulaire. **Ce dernier n'est pas destiné à demander de l'aide**. Merci de comprendre."
+title-block-banner: true
+editor: visual
+---
+
+```{=html}
+<form action="https://formspree.io/f/xlevbykp" class="extra-padding" method="POST">
+    
+    <div class="form-group">
+      
+        <label for="name"> Nom complet </label>
+        <input type="name" class="form-control" id="name" name="_name" ngModel="reply" aria-describedby="Name" placeholder="Nom complet">
+        <small id="name" class="form-text text-muted"> Votre identité ne sera pas partagé avec une tierce.
+    <div class="form-group">
+      
+        <label for="replyTo"> Votre adresse e-mail </label>
+        <input type="email" class="form-control" id="replyTo" name="_replyto" ngModel="reply" aria-describedby="emailHelp" placeholder="test@example.com">
+        <small id="emailHelp" class="form-text text-muted"> Votre message ne sera pas partagé avec une tierce. </small>
+    </div>
+    <div class="form-group">
+        <label for="message"> Votre message </label>
+        <textarea name="message" style="height:200px" class="form-control" id="message" placeholder="Bonjour! Je vous contacte parce que..."> </textarea>
+    </div>
+    <button type="submit" class="button"> Envoyer votre message </button>
+</form>
+```
+
+Powered by [Formspree](https://formspree.io "Formspree")
