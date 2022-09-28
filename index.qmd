@@ -1,0 +1,19 @@
+---
+title: "Blog personel"
+subtitle: Un blog sur la science de données
+listing:
+  sort-ui: true
+  filter-ui: true
+  contents: posts
+  sort: "date desc"
+  type: grid
+  grid-columns: 3
+  image-height: 250px
+  page-size: 100
+  categories: true
+page-layout: full
+title-block-banner: true
+image: profile.jpg
+---
+
+Bienvenue sur mon blog dont je suis ravi de partager avec vous.

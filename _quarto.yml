@@ -1,0 +1,45 @@
+project:
+  type: website
+  output-dir: docs
+lang: fr
+
+website:
+  title: "Blog personel"
+  repo-url: https://github.com/oousmane/quarto-blog
+  open-graph: true
+  twitter-card:
+    creator: "@oousmane_11"
+    card-style: summary_large_image
+  navbar:
+    background: "#eeeeee"
+    logo: logo-circle.jpg
+    right:
+      - about.qmd
+      - text: CV
+        href: CV.pdf
+      - icon: twitter
+        aria-label: twitter
+        href: https://twitter.com/oousmane_11
+      - icon: github
+        aria-label: github
+        href: https://github.com/oousmane
+      - icon: facebook
+        aria-label: facebook
+        href: https://www.facebook.com/oousmane.aly
+        
+  page-footer: 
+   left: |
+    Content {{< fa brands creative-commons >}} 2022 by Ousmane Ouedraogo <br>
+    All content licensed under a {{< fa brands creative-commons >}}
+    {{< fa brands creative-commons-by >}} {{< fa brands creative-commons-nc >}}
+    [Creative Commons Attribution-NonCommercial 4.0 International license (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/)
+   right: |
+    Made with {{< fa brands r-project >}} and [Quarto](https://quarto.org/)<br>
+    [View the source at {{< fa brands github >}} GitHub](https://github.com/oousmane/quarto-blog)
+
+format:
+  html:
+    theme: ember.scss
+    css: styles.css
+
+editor: visual

@@ -1,0 +1,54 @@
+---
+title: "Bienvenue sur mon blog"
+description: Tenir un blog était un grand souhait du moment où apprendre et partager de nouvelles choses fait partie intégrante de ma personnalité. Aujourdui c'est chose faite !
+title-block-banner: true
+date: "2022-09-27"
+image: bienvenue-files/andrew-neel-unsplash.jpg
+categories: [Blogging,Quarto,Github]
+author:
+  - name: Ousmane Ouedraogo
+    url: https://oousmane.github.io/quarto-blog/
+    orcid: 0000-0002-6349-41468
+editor: visual
+citation: true
+license: CC BY-SA
+bibliography: references.bib
+---
+
+Enfin un [blog](https://www.journaldunet.fr/web-tech/dictionnaire-du-webmastering/1203251-blog-definition-et-acteurs/ "C'est quoi un blog?") bien constitué, et ce, après plusieurs tentatives.
+Il faut dire que l'idée de blog me tentait énormément depuis que j'avais découvert la communauté de R à travers d'excellents articles qui instruisait plus d'un.
+Seulement, voilà, je ne savais pas par où commencer pour construire mon propre blog, le déployer et le tenir à jour (rire).
+J'ai essayé plusieurs approches [Wordpress](https://wordpress.com "Wordpress"), blogdown [@blogdown] avec le célèbre thème Academic de [Hugo](https://gohugo.io "Hugo"), distill [@distill] et j'en passe sans avoir réellement atteint mon ambition : avoir un blog simple, facile à maintenir et esthétique.
+C'est ainsi que je m'étais résigné à utiliser celui construit avec distill et déployé avec [Netlify.](https://www.netlify.com "Netlify")
+Un jour dans mes balades sur Internet, je tombe sur l'annonce de [Quarto](https://quarto.org "Quarto") le successeur en gros de **Rmarkdown** et très vite, je fus séduit par la qualité de ses sorties et agréablement surpris par sa grande flexibilité pour passer d'un format à un autre ainsi que la possibilité de générer des projets comme un blog, site web ou livre.
+Je reviendrai dans un autre blog pour présenter les autres possibilités qu'offre Quarto.
+Je me suis dit, je construirais mon blog en l'utilisant.
+
+Il m'a fallu juste une heure ou deux pour adopter, "apprivoiser" Quarto car très similaire avec Rmarkdown [@rmarkdown].
+J'ai consulté plusieurs blogs dont celui de Daniel Navarro [@navarro2022], qui fut très explicite sur comment procéder pour avoir son blog même si elle passer depuis distill que je connaissais dejà bien.
+J'ai trouvé son thème juste Waouh et je lui ai piqué toute honte bue.
+J'atteignais ainsi mon but après maintes tentatives depuis décembre 2021.
+Je promets revenir sur un post question de retracer de bout en bout les étapes que j'ai suivi afin que vous aussi vous puissiez, sans rien connaître du développement web, mettre en place votre site de blogging.
+Maintenant que le blog est en place quelle sera donc son orientation future?
+
+Cette question est hautement importante et à l'heure actuelle plusieurs possibilités s'offrent à moi.
+Mais très certainement ce que j'ai en vue tout de suite et maintenant, c'est de partager des connaissances, trucs et astuces, d'écrire sur des sujets en lien avec la science du climat, la data science mais surtout de machine learning.
+Je suis un gros fan de R et RStudio et surtout de l'écosystème tidyverse[^1] qui au-delà d'être une boîte à outils est à mon avis toute une philosophie.
+Alors il sera question de regarder tous les concepts cités plus haut à travers le prisme de R et RStudio.
+Bien entendu d'autres outils feront l'objet d'attentions particulières comme Climate Data Operators - CDO [@schulzweida2022], [Git et Github](https://www.pierre-giraud.com/git-github-apprendre-cours/presentation-git-github/ "Git et Github") pour le versionage de code et j'en passe.
+La notion de reproductibilité[^2] et d'open source sera de mise
+. En effet, par conviction, j'estime qu'aujourd'hui, il ne sert à rien de continuer à apprendre des logiciels sous licence alors que les open sources sont tout au moins efficaces, accessibles et avec une aide disponible à travers les grandes communautés qu'ils suscitent
+. Bref, rien qu'à y penser, je suis déjà tout excité
+. C'est le début d'une longue et belle histoire
+. Malgré mes occupations actuelles qui me bouffent énormément de temps, un créneau sera trouvé afin de partager et d'apprendre ensemble de nouvelles et belles choses
+. Merci d'être là, nous sommes ensemble
+. Let's Go
+.
+
+[^1]: \"tidyverse\", contraction de \"tidy\" et de \"universe\", c\'est un **univers bien rangé** si l\'on traduit mot à mot.
+    Dans les faits, il s\'agit d\'un **ensemble de packages** R qui sont conçus pour fonctionner ensemble et suivant de ce fait une même logique de code et une grammaire commune.
+    [ThinkR](https://thinkr.fr/c-est-quoi-le-tidyverse/)
+
+[^2]: Pour faire « simple », c'est une approche qui cherche à diminuer l'écart entre un idéal -- les résultats devraient être reproductibles -- et la réalité -- il est souvent difficile, même pour leurs auteurs, de reproduire des résultats publiés.
+    Concrètement, c'est une démarche qui consiste à fournir aux lecteurs d'articles, d'ouvrages, etc, l'ensemble des données et des programmes accompagnés d'une description algorithmique de la façon dont les programmes ont été appliqués aux données pour obtenir les résultats présentés.
+    [Christophe Pouzat](https://www.societe-informatique-de-france.fr/wp-content/uploads/2021/05/journee-sif-repro-1-pouzat-recherche-repro.pdf "Christophe Pouzat - Recherche reproductible")

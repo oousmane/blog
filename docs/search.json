@@ -1,0 +1,30 @@
+[
+  {
+    "objectID": "posts/bienvenue.html",
+    "href": "posts/bienvenue.html",
+    "title": "Bienvenue sur mon blog",
+    "section": "",
+    "text": "Il m’a fallu juste une heure ou deux pour adopter, “apprivoiser” Quarto car très similaire avec Rmarkdown (Allaire et al. 2022). J’ai consulté plusieurs blogs dont celui de Daniel Navarro (Navarro 2022), qui fut très explicite sur comment procéder pour avoir son blog même si elle passer depuis distill que je connaissais dejà bien. J’ai trouvé son thème juste Waouh et je lui ai piqué toute honte bue. J’atteignais ainsi mon but après maintes tentatives depuis décembre 2021. Je promets revenir sur un post question de retracer de bout en bout les étapes que j’ai suivi afin que vous aussi vous puissiez, sans rien connaître du développement web, mettre en place votre site de blogging. Maintenant que le blog est en place quelle sera donc son orientation future?\nCette question est hautement importante et à l’heure actuelle plusieurs possibilités s’offrent à moi. Mais très certainement ce que j’ai en vue tout de suite et maintenant, c’est de partager des connaissances, trucs et astuces, d’écrire sur des sujets en lien avec la science du climat, la data science mais surtout de machine learning. Je suis un gros fan de R et RStudio et surtout de l’écosystème tidyverse1 qui au-delà d’être une boîte à outils est à mon avis toute une philosophie. Alors il sera question de regarder tous les concepts cités plus haut à travers le prisme de R et RStudio. Bien entendu d’autres outils feront l’objet d’attentions particulières comme Climate Data Operators - CDO (Schulzweida 2022), Git et Github pour le versionage de code et j’en passe. La notion de reproductibilité2 et d’open source sera de mise . En effet, par conviction, j’estime qu’aujourd’hui, il ne sert à rien de continuer à apprendre des logiciels sous licence alors que les open sources sont tout au moins efficaces, accessibles et avec une aide disponible à travers les grandes communautés qu’ils suscitent . Bref, rien qu’à y penser, je suis déjà tout excité . C’est le début d’une longue et belle histoire . Malgré mes occupations actuelles qui me bouffent énormément de temps, un créneau sera trouvé afin de partager et d’apprendre ensemble de nouvelles et belles choses . Merci d’être là, nous sommes ensemble . Let’s Go .\n\n\n\n\n\nLes références\n\nAllaire, JJ, Yihui Xie, Jonathan McPherson, Javier Luraschi, Kevin Ushey, Aron Atkins, Hadley Wickham, Joe Cheng, Winston Chang, et Richard Iannone. 2022. « rmarkdown: Dynamic Documents for R ». https://github.com/rstudio/rmarkdown.\n\n\nDervieux, Christophe, JJ Allaire, Rich Iannone, Alison Presmanes Hill, et Yihui Xie. 2022. « distill: ’R Markdown’ Format for Scientific and Technical Writing ». https://CRAN.R-project.org/package=distill.\n\n\nNavarro, Danielle. 2022. « Porting a Distill Blog to Quarto ». https://blog.djnavarro.net/posts/2022-04-20_porting-to-quarto.\n\n\nSchulzweida, Uwe. 2022. « CDO User Guide », octobre. https://doi.org/10.5281/zenodo.7112925.\n\n\nXie, Yihui, Christophe Dervieux, et Alison Presmanes Hill. 2022. « blogdown: Create Blogs and Websites with R Markdown ». https://github.com/rstudio/blogdown.\n\nNotes de bas de page\n\n\n\"tidyverse\", contraction de \"tidy\" et de \"universe\", c'est un univers bien rangé si l'on traduit mot à mot. Dans les faits, il s'agit d'un ensemble de packages R qui sont conçus pour fonctionner ensemble et suivant de ce fait une même logique de code et une grammaire commune. ThinkR↩︎\nPour faire « simple », c’est une approche qui cherche à diminuer l’écart entre un idéal – les résultats devraient être reproductibles – et la réalité – il est souvent difficile, même pour leurs auteurs, de reproduire des résultats publiés. Concrètement, c’est une démarche qui consiste à fournir aux lecteurs d’articles, d’ouvrages, etc, l’ensemble des données et des programmes accompagnés d’une description algorithmique de la façon dont les programmes ont été appliqués aux données pour obtenir les résultats présentés. Christophe Pouzat↩︎\n\nRéutilisationhttps://creativecommons.org/licenses/by-sa/4.0/deed.frCitationBibTeX@online{ouedraogo2022,\n  author = {Ousmane Ouedraogo},\n  editor = {},\n  title = {Bienvenue sur mon blog},\n  date = {2022-09-27},\n  langid = {fr}\n}\nVeuillez citer ce travail comme suit :\nOusmane Ouedraogo. 2022. “Bienvenue sur mon blog.”\nSeptember 27, 2022."
+  },
+  {
+    "objectID": "Licence.html",
+    "href": "Licence.html",
+    "title": "License",
+    "section": "",
+    "text": "My blog posts are released under a Creative Commons Attribution-ShareAlike 4.0 International License."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Blog personel",
+    "section": "",
+    "text": "Trier par\n       Ordre par défaut\n         \n          Titre\n        \n         \n          Date - Le plus ancien\n        \n         \n          Date - Le plus récent\n        \n         \n          Auteur·rice\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nBienvenue sur mon blog\n\n\n\nBlogging\n\n\nQuarto\n\n\nGithub\n\n\n\nTenir un blog était un grand souhait du moment où apprendre et partager de nouvelles choses fait partie intégrante de ma personnalité. Aujourdui c’est chose faite !\n\n\n\nOusmane Ouedraogo\n\n\n27 sept. 2022\n\n\n\n\n\n\n\n\nAucun article correspondant"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Ousmane Ouedraogo",
+    "section": "",
+    "text": "Salut 👋🏻 je suis météo 🌦️ et je travaille à l' Agence Nationale de la Météorologie à Ouagadougou, Burkina Faso. Je suis particulièrement passionné d’analyse et visualisation de données, de climat et de machine learning. Aussi j’adore apprendre et partager de nouvelle choses au quotidien. Vous savez tout moi !"
+  }
+]
