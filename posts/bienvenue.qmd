@@ -45,8 +45,8 @@ La notion de reproductibilité[^2] et d'open source sera de mise
 . En avant pour de nouvelles aventures toutes passionnantes les unes des autres
 .
 
-[^1]: \"tidyverse\", contraction de \"tidy\" et de \"universe\", c\'est un **univers bien rangé** si l\'on traduit mot à mot.
-    Dans les faits, il s\'agit d\'un **ensemble de packages** R qui sont conçus pour fonctionner ensemble et suivant de ce fait une même logique de code et une grammaire commune.
+[^1]: "tidyverse", contraction de "tidy" et de "universe", c'est un **univers bien rangé** si l'on traduit mot à mot.
+    Dans les faits, il s'agit d'un **ensemble de packages** R qui sont conçus pour fonctionner ensemble et suivant de ce fait une même logique de code et une grammaire commune.
     [ThinkR](https://thinkr.fr/c-est-quoi-le-tidyverse/)
 
 [^2]: Pour faire « simple », c'est une approche qui cherche à diminuer l'écart entre un idéal -- les résultats devraient être reproductibles -- et la réalité -- il est souvent difficile, même pour leurs auteurs, de reproduire des résultats publiés.

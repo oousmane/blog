@@ -3,7 +3,6 @@ project:
   output-dir: docs
 lang: fr
 
-
 website:
   title: "Blog personel"
   cookie-consent:
@@ -25,7 +24,7 @@ website:
       - text: Ousmane
         href: about.qmd
       - text: CV
-        href: CV.pdf
+        href: resume/resume.pdf
       - contact.qmd
       - icon: twitter
         aria-label: twitter

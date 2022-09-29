@@ -26,5 +26,4 @@ editor: visual
     <button type="submit" class="button"> Envoyer votre message </button>
 </form>
 ```
-
 Powered by [Formspree](https://formspree.io "Formspree")

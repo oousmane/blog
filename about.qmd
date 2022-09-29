@@ -19,7 +19,7 @@ about:
 
 ------------------------------------------------------------------------
 
-Salut 👋🏻 je suis météo 🌦️ et je travaille à l\' **Agence Nationale de la Météorologie** à **Ouagadougou, Burkina Faso**.
+Salut 👋🏻 je suis météo 🌦️ et je travaille à l' **Agence Nationale de la Météorologie** à **Ouagadougou, Burkina Faso**.
 Je suis particulièrement passionné d'analyse et visualisation de données, de climat et de machine learning.
 Aussi j'adore apprendre et partager de nouvelle choses au quotidien.
 
