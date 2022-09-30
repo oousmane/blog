@@ -1,13 +1,16 @@
 project:
   type: website
+  
   output-dir: docs
 lang: fr
+
 
 website:
   title: "Blog personel"
   cookie-consent:
    style: simple
    type: express
+
   # comments: 
   #  utterances:
   #    repo: oousmane/cdc-website
