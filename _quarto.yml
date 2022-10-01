@@ -53,5 +53,6 @@ format:
   html:
     theme: ember.scss
     css: styles.css
-
+execute: 
+  freeze: auto
 editor: visual
