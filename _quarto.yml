@@ -54,5 +54,5 @@ format:
     theme: ember.scss
     css: styles.css
 execute: 
-  freeze: auto
+  freeze: true
 editor: visual
