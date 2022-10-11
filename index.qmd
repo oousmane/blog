@@ -1,28 +1,28 @@
 ---
-title: "Blog personel"
-subtitle: Un blog pas que sur la science de données
-listing:
-  sort-ui: true
-  filter-ui: true
-  contents: posts
-  sort: "date desc"
-  type: grid
-  grid-columns: 3
-  image-height: 250px
-  page-size: 100
-  categories: true
-page-layout: full
-title-block-banner: true
+title: ""
 image: profile.jpg
+about:
+  template: jolla
+  links:
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/oousmane_11
+    - icon: github
+      text: Github
+      href: https://github.com/oousmane
+    - icon: facebook
+      text: Facebook
+      href: https://www.facebook.com/oousmane.aly/
 ---
 
-Bienvenue sur mon blog dont je suis ravi de partager avec vous. Pour ne rien ratez de mes posts à venir, vous pouvez souscrire à ma Newsletter.
+**Ousmane Ouedraogo**, Climate and Data Scientist.
 
-***
-**Ousmane's Newsletter**
+------------------------------------------------------------------------
 
-```{=html}
-<iframe src="https://embeds.beehiiv.com/8d641608-2c38-4922-993b-f2accb437283?slim=true" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" style="margin: 0; border-radius: 0px !important; background-color: transparent;"></iframe>
-```
+Salut 👋🏻 je suis météo 🌦️ et je travaille à l' **Agence Nationale de la Météorologie** à **Ouagadougou, Burkina Faso**.
+Je suis particulièrement passionné d'analyse et visualisation de données, de climat et de machine learning.
+Aussi j'adore apprendre et partager de nouvelle choses au quotidien.
 
+Par mes temps libres j'anime des formations sur la programmation avec R d'une part et de l'autre j'offre des services de freelance en analyse et visualisation de données.
 
+Voilà vous savez tout moi !

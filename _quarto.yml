@@ -6,7 +6,7 @@ lang: fr
 
 
 website:
-  title: "Blog personel"
+  title: ""
   cookie-consent:
    style: simple
    type: express
@@ -23,11 +23,12 @@ website:
   navbar:
     background: "#eeeeee"
     logo: logo-circle.jpg
-    right:
-      - text: Ousmane
-        href: about.qmd
+    left:
+      - text: Blog
+        href: blog.qmd
       - text: CV
         href: resume/resume.pdf
+    right: 
       - contact.qmd
       - icon: twitter
         aria-label: twitter
@@ -41,13 +42,12 @@ website:
      
   page-footer: 
    left: |
-    Content {{< fa brands creative-commons >}} 2022 by Ousmane Ouedraogo <br>
+  
     All content licensed under a {{< fa brands creative-commons >}}
     {{< fa brands creative-commons-by >}} {{< fa brands creative-commons-nc >}}
-    [Creative Commons Attribution-NonCommercial 4.0 International license (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/)
+    [(CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/)
    right: |
-    Made with {{< fa brands r-project >}} and [Quarto](https://quarto.org/)<br>
-    [View the source at {{< fa brands github >}} GitHub](https://github.com/oousmane/quarto-blog)
+    [{{< fa brands github >}} ](https://github.com/oousmane/quarto-blog)
     
 format:
   html:
