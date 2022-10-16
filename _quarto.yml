@@ -23,12 +23,11 @@ website:
   navbar:
     background: "#eeeeee"
     logo: logo-circle.jpg
-    left:
+    right:
       - text: Blog
         href: blog.qmd
       - text: CV
         href: resume/resume.pdf
-    right: 
       - contact.qmd
       - icon: twitter
         aria-label: twitter

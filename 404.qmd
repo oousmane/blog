@@ -1,0 +1,10 @@
+---
+title: "Page non trouvée"
+editor: visual
+---
+
+La page que vous avez demandée est introuvable (elle a peut-être été déplacée ou renommée).
+Vous pouvez essayer de rechercher le nouvel emplacement de la page.
+Revenir sur [Blog](blog.qmd)
+
+![](img/404.svg){.hero fig-align="center" width="500"}

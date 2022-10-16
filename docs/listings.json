@@ -2,6 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/kmeans.html",
       "/posts/bienvenue.html"
     ]
   }
