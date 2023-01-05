@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.251">
+<meta name="generator" content="quarto-1.2.280">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="description" content="Si vous désirez me contacter à propos d’opportunités de travailler ensemble ou de demandes de tutorat, freelance,bien vouloir remplir ce formulaire. Ce dernier n’est pas destiné à demander de l’aide. Merci de comprendre.">
 
-<title>- Me Contacter</title>
+<title>Me Contacter</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -82,10 +82,10 @@ cookieconsent.run({
 
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="- Me Contacter">
-<meta property="og:description" content="Si vous désirez me contacter à propos d’opportunités de travailler ensemble ou de demandes de tutorat, freelance,bien vouloir remplir ce formulaire. Ce dernier n’est pas destiné à demander de l’aide. Merci de comprendre.">
-<meta name="twitter:title" content="- Me Contacter">
-<meta name="twitter:description" content="Si vous désirez me contacter à propos d’opportunités de travailler ensemble ou de demandes de tutorat, freelance,bien vouloir remplir ce formulaire. Ce dernier n’est pas destiné à demander de l’aide. Merci de comprendre.">
+<meta property="og:title" content="Me Contacter">
+<meta property="og:description" content="Si vous désirez me contacter à propos d'opportunités de travailler ensemble ou de demandes de tutorat, freelance,bien vouloir remplir ce formulaire.">
+<meta name="twitter:title" content="Me Contacter">
+<meta name="twitter:description" content="Si vous désirez me contacter à propos d'opportunités de travailler ensemble ou de demandes de tutorat, freelance,bien vouloir remplir ce formulaire.">
 <meta name="twitter:creator" content="@oousmane_11">
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -107,28 +107,39 @@ cookieconsent.run({
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./blog.html">Blog</a>
+    <a class="nav-link" href="./blog.html">
+ <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./resume/resume.pdf">CV</a>
+    <a class="nav-link" href="./404.html">
+ <span class="menu-text">Projets</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./contact.html" aria-current="page">Me Contacter</a>
+    <a class="nav-link" href="./404.html">
+ <span class="menu-text">Talks</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./resume/resume.pdf">
+ <span class="menu-text">CV</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./contact.html" aria-current="page">
+ <span class="menu-text">Me Contacter</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://twitter.com/oousmane_11"><i class="bi bi-twitter" role="img" aria-label="twitter">
 </i> 
- </a>
+ <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/oousmane"><i class="bi bi-github" role="img" aria-label="github">
 </i> 
- </a>
+ <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://www.facebook.com/oousmane.aly"><i class="bi bi-facebook" role="img" aria-label="facebook">
 </i> 
- </a>
+ <span class="menu-text"></span></a>
   </li>  
 </ul>
               <div id="quarto-search" class="" title="Search"></div>
@@ -153,6 +164,7 @@ cookieconsent.run({
   <div class="quarto-title-meta">
 
       
+    
       
     </div>
     
@@ -232,7 +244,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copié");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copié");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -268,31 +297,49 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>
 </small></div><small id="name" class="form-text text-muted"> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">All content licensed under a <i class="fa-brands fa-creative-commons" aria-hidden="true"></i> <i class="fa-brands fa-creative-commons-by" aria-hidden="true"></i> <i class="fa-brands fa-creative-commons-nc" aria-hidden="true"></i> <a href="https://creativecommons.org/licenses/by-sa/4.0/">(CC BY-SA 4.0)</a></div>   
+    <div class="nav-footer-left">All content are © Ousmane Ouedraogo and licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons</a></div>   
       <div class="nav-footer-center"><div class="cookie-consent-footer"><a href="#" id="open_preferences_center">Cookie Preferences</a></div></div>
     <div class="nav-footer-right"><a href="https://github.com/oousmane/quarto-blog"><i class="fa-brands fa-github" aria-hidden="true"></i></a></div>
   </div>
