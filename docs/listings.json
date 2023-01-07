@@ -1,5 +1,11 @@
 [
   {
+    "listing": "/formations.html",
+    "items": [
+      "/trainings/r-tidyverse.html"
+    ]
+  },
+  {
     "listing": "/blog.html",
     "items": [
       "/posts/kmeans.html",

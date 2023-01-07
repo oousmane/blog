@@ -1,0 +1,22 @@
+---
+title: "Introduction à R et au tidyverse"
+description: |
+ R est aujourd’hui le logiciel libre de référence pour traiter des données. La présente formation, qui s’étale sur deux jours, est consacrée à la présentation des fonctionnalités de base du logiciel R et du package tidyverse, le tout accompagnée d’exemples d’utilisations pratiques. Les stagiaires mettront en œuvre le logiciel, sous la forme d’exercices d’application.
+title-block-banner: true
+image: r-tidyverse-files/tidyverse-default.png
+categories: [R,Programming,Tidyverse]
+author:
+  - name: Ousmane Ouedraogo
+    url: https://oousmane.github.io
+    orcid: 0000-0002-6349-41468
+editor: visual
+citation:
+ url: https://oousmane.github.io/intro-r-tidyverse/
+license: CC BY-SA
+---
+
+Tidyverse est une collection de logiciels R polyvalents destinés au nettoyage, au traitement, à la modélisation et à la visualisation de données.
+Certains des packages inclus sont: ggplot2, dplyr, tidyr, readr, purrr et tibble.
+
+Dans cette formation en présentiel animée par un instructeur, les participants apprendront à manipuler et à visualiser des données à l'aide des outils inclus dans Tidyverse.
+Consulter le site web de la formation [ici](https://oousmane.github.io/intro-r-tidyverse/ "Introduction à R et au tidyverse")

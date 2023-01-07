@@ -24,10 +24,12 @@ website:
     background: "#eeeeee"
     logo: logo-circle.jpg
     right:
+      - text: Accueil
+        href: index.qmd
       - text: Blog
         href: blog.qmd
-      - text: Projets 
-        href: 404.qmd
+      - text: Formations 
+        href: formations.qmd
       - text: Talks
         href: 404.qmd
       - text: CV
