@@ -22,7 +22,8 @@ website:
     card-style: summary_large_image
   navbar:
     background: "#eeeeee"
-    logo: logo-circle.jpg
+    logo: logo_name.png
+    
     right:
       - text: Accueil
         href: index.qmd
@@ -30,11 +31,11 @@ website:
         href: blog.qmd
       - text: Formations 
         href: formations.qmd
-      - text: Talks
-        href: 404.qmd
+      #- text: Talks
+       # href: 404.qmd
       - text: CV
         href: resume/resume.pdf
-      - contact.qmd
+      #- contact.qmd
       - icon: twitter
         aria-label: twitter
         href: https://twitter.com/oousmane_11

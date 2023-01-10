@@ -23,6 +23,4 @@ Salut 👋🏻 je suis météo 🌦️ et je travaille à l' **Agence Nationale 
 Je suis particulièrement passionné d'analyse et visualisation de données, de climat et de machine learning.
 Aussi j'adore apprendre et partager de nouvelle choses au quotidien.
 
-Par mes temps libres j'anime des formations sur la programmation avec R d'une part et de l'autre j'offre des services de freelance en analyse et visualisation de données.
-
-Voilà vous savez tout moi !
+Par mes temps libres j'anime des formations sur la programmation avec R d'une part et de l'autre j'offre des services de **freelance** en analyse et visualisation de données.
