@@ -13,7 +13,6 @@ author:
 editor: visual
 citation:
  url: https://oousmane.github.io/kmeans
-license: CC BY-SA
 ---
 
 # Introduction

@@ -21,20 +21,23 @@ website:
     creator: "@oousmane_11"
     card-style: summary_large_image
   navbar:
-    background: "#eeeeee"
-    logo: logo_name.png
-    
-    right:
-      - text: Accueil
+#    background: "#2c2c2c"
+#   logo: logo_name.png
+    left:
+      - text: Ousmane Ouedraogo
         href: index.qmd
+      
+    right:
       - text: Blog
         href: blog.qmd
       - text: Formations 
         href: formations.qmd
+      - text: Projets
+        href: Projets.qmd
       #- text: Talks
        # href: 404.qmd
       - text: CV
-        href: resume/resume.pdf
+        href: CV.qmd
       #- contact.qmd
       - icon: twitter
         aria-label: twitter
@@ -47,17 +50,22 @@ website:
         href: https://www.facebook.com/oousmane.aly
      
   page-footer: 
+
    left: |
-  
-    All content are © Ousmane Ouedraogo and licensed under
-    [Creative Commons](https://creativecommons.org/licenses/by-sa/4.0/)
+    Réalisé avec 
+    [![](https://quarto.org/quarto.png){fig-alt="Quarto" width=65px}](https://quarto.org)
    right: |
-    [{{< fa brands github >}} ](https://github.com/oousmane/quarto-blog)
-    
+    [{{< fa brands github >}} ](https://github.com/oousmane/quarto-blog/)
+   center: |
+    [Licence](Licence.qmd)
+
+lightbox: auto
+
 format:
   html:
-    theme: ember.scss
-    css: styles.css
+    theme:
+      light: [cosmo, styles/custom.scss, styles/custom-light.scss]
+      dark: [darkly, styles/custom.scss, styles/custom-dark.scss]
 execute: 
   freeze: true
 editor: visual

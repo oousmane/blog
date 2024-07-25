@@ -28,3 +28,24 @@ Consulter le site web de la formation ici.
 Pour en savoir beaucoup plus, consulter le site web de la formation [ici](https://oousmane.github.io/intro-r-tidyverse/).
 :::
 :::
+
+## Introduction au Bash
+
+::: columns
+::: {.column width="30%"}
+![](https://upload.wikimedia.org/wikipedia/commons/8/82/Gnu-bash-logo.svg){fig-align="center" width="250"}
+:::
+
+::: {.column width="50%"}
+Le langage de script Bash est essentiel pour les chercheurs/étudiants en sciences informatiques et en génie logiciel, ainsi que pour tout professionnel travaillant dans un environnement UNIX/Linux. La maîtrise de Bash permet d'automatiser des tâches répétitives, de gérer des systèmes et des serveurs, et d'optimiser les flux de travail. En intégrant cette compétence dans le cursus, les étudiants acquièrent une compétence pratique et précieuse qui les préparera mieux pour le marché du travail, où l'efficacité et l'automatisation sont de plus en plus valorisées.
+
+Dans cette formation en présentiel animée par un instructeur, les participants apprendront à les bases du langage `Bash` et seront à la fin capable seront capables de combiner plusieurs commandes Bash pour créer des scripts complexes qui résolvent des problèmes spécifiques .
+
+-   **Durée:** 02 jours
+
+-   **Niveau:** Débutant
+
+-   **Prérequis:** Être familier SE Unix/Linux
+
+:::
+:::

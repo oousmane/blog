@@ -1,0 +1,52 @@
+---
+title: "Portfolio de projets"
+subtitle: "Un bref aperçu des projets que j'ai réalisés, auxquels j'ai contribué ou dans lesquels je suis impliqué."
+page-layout: full
+title-block-banner: true
+---
+
+## Packages R
+
+### oscarr package
+::: columns
+::: {.column width="30%"}
+![](img/hex-oscarr.png){fig-align="center" width="200"}
+:::
+
+::: {.column width="50%"}
+L'objectif de `oscarr` est de fournir un wrapper R au module python `pyoscar` qui fournit un accès facile au REST API OSCAR de l'OMM (WMO). En d'autres termes, le paquet oscarr rend disponible `pyoscar` à la communauté R.
+
+WMO/OSCAR 
+
+Le code source est disponible sur [{{< fa brands github >}}Github](https://github.com/oousmane/oscarr/).
+
+Le site web compagnon du package est disponible au lien [https://oousmane.github.io/oscarr/](https://oousmane.github.io/oscarr/)
+
+Pour en savoir beaucoup plus sur OSCAR visitez l'adresse :  [https://space.oscar.wmo.int](https://space.oscar.wmo.int).
+:::
+:::
+
+## Bénévolat & vie associative
+
+### Cercle des chercheurs (CDC)
+
+::: columns
+::: {.column width="30%"}
+![](img/logo-cdc.jpeg){fig-align="center" width="200"}
+:::
+
+::: {.column width="50%"}
+
+Depuis 2022, je suis membre de la Cellule Formation et Recherche au sein de l’association **Cercle des Chercheurs (CDC)**. 
+
+**CDC**, est une association à caractère scientifique visant à promouvoir la recherche scientifique dans toute sa diversité. Spécifiquement le CDC contribue à valoriser, vulgariser les résultats de recherches au niveau national et participe à la formation des jeunes chercheurs et chercheurs confirmés sur un certain nombre d'outils.
+
+Mes tâches au sein du CDC sont entre autres d'animer des formation en programmation avec R, de partager des opportunités de formations, bourses et programmes etc. avec les autres membres de l'association.
+
+Les actualités du CDC sont accessibles sur leurs médias sociaux officiels:
+<br>
+[{{< fa brands facebook >}} Facebook](https://web.facebook.com/cerclechercheurs)
+<br> [{{< fa brands linkedin >}} Linkedin](https://www.linkedin.com/in/association-cercle-des-chercheurs-25b5aa237/?original_referer=https%3A%2F%2Fwww%2Egoogle%2Ecom%2F&originalSubdomain=bf)
+:::
+:::
+

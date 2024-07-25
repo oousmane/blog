@@ -16,13 +16,13 @@ title-block-banner: true
 image: profile.jpg
 ---
 
-Bienvenue sur mon blog dont je suis ravi de partager avec vous. Pour ne rien ratez de mes posts à venir, vous pouvez souscrire à ma Newsletter.
+Bienvenue sur mon blog dont je suis ravi de partager avec vous.
+Pour ne rien ratez de mes posts à venir, vous pouvez souscrire à ma Newsletter.
 
-***
+------------------------------------------------------------------------
+
 **Ousmane's Newsletter**
 
 ```{=html}
 <iframe src="https://embeds.beehiiv.com/8d641608-2c38-4922-993b-f2accb437283?slim=true" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" style="margin: 0; border-radius: 0px !important; background-color: transparent;"></iframe>
 ```
-
-

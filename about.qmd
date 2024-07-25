@@ -1,6 +1,7 @@
 ---
-title: ""
+title: "Une petite Bio"
 image: profile.jpg
+title-block-banner: true
 about:
   template: jolla
   links:
