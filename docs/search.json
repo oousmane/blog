@@ -114,7 +114,7 @@
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "Une petite Bio",
+    "title": "Une petite bio",
     "section": "",
     "text": "Ousmane Ouedraogo, Météorologiste.\n\nSalut 👋🏻 je suis météo 🌦️ et je travaille à l’ Agence Nationale de la Météorologie à Ouagadougou, Burkina Faso. Je suis particulièrement passionné d’analyse et visualisation de données, de climat et de machine learning. Aussi j’adore apprendre et partager de nouvelle choses au quotidien.\nPar mes temps libres j’anime des formations sur la programmation avec R d’une part et de l’autre j’offre des services de freelance en analyse et visualisation de données."
   },
@@ -124,5 +124,12 @@
     "title": "Curriculum Vitae",
     "section": "",
     "text": "Download PDF file."
+  },
+  {
+    "objectID": "formations.html#introduction-à-git-github-versionage-de-code",
+    "href": "formations.html#introduction-à-git-github-versionage-de-code",
+    "title": "Catalogue des formations",
+    "section": "Introduction à Git & Github : versionage de code",
+    "text": "Introduction à Git & Github : versionage de code\n\n\n\n\n\n\n\n\nGit est un système de contrôle de version décentralisé qui permet aux développeurs de suivre et de gérer les modifications apportées au code source au fil du temps. Comprendre Git est essentiel pour toute personne travaillant sur des projets de développement logiciel, car il offre un moyen efficace de gérer les versions, de collaborer avec d’autres développeurs et de maintenir l’historique des modifications.\nGitHub, une plateforme basée sur Git, facilite la collaboration entre les développeurs. Il permet de travailler simultanément sur le même projet, de fusionner les modifications, de résoudre les conflits et de suivre les contributions de chaque membre de l’équipe. Pour les étudiants ou les professionnels, maîtriser Git et GitHub est crucial pour collaborer efficacement dans un environnement de développement réel. Pour les étudiants ou les professionnels, maîtriser Git et GitHub est crucial pour collaborer efficacement dans un environnement de développement réel.\nDans cette formation en présentiel animée par un instructeur, les participants apprendront les bases de Git et Github et seront à la fin capables de combiner plusieurs commandes Git pour gerer les versions de leur codes .\n\nDurée: 02 jours\nNiveau: Débutant\nPrérequis: Être familier SE Unix/Linux"
   }
 ]

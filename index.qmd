@@ -1,6 +1,7 @@
 ---
-title: ""
+subtitle: "The 'Data Man', a lovely name by Bishop J. Stepney "
 image: profile.jpg
+title-block-banner: true
 about:
   template: jolla
   links:

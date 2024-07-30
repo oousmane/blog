@@ -63,6 +63,7 @@ lightbox: auto
 
 format:
   html:
+    css: [styles/styles.css]
     theme:
       light: [cosmo, styles/custom.scss, styles/custom-light.scss]
       dark: [darkly, styles/custom.scss, styles/custom-dark.scss]

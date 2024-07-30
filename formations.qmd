@@ -49,3 +49,26 @@ Dans cette formation en présentiel animée par un instructeur, les participants
 
 :::
 :::
+
+## Introduction à Git & Github : versionage de code
+
+::: columns
+::: {.column width="30%"}
+![](img/git-and-githb.png){fig-align="center" width="250"}
+:::
+
+::: {.column width="50%"}
+ **Git** est un système de contrôle de version décentralisé qui permet aux développeurs de suivre et de gérer les modifications apportées au code source au fil du temps. Comprendre Git est essentiel pour toute personne travaillant sur des projets de développement logiciel, car il offre un moyen efficace de gérer les versions, de collaborer avec d'autres développeurs et de maintenir l'historique des modifications.
+ 
+ **GitHub**, une plateforme basée sur **Git**, facilite la collaboration entre les développeurs. Il permet de travailler simultanément sur le même projet, de fusionner les modifications, de résoudre les conflits et de suivre les contributions de chaque membre de l'équipe. Pour les étudiants ou les professionnels, maîtriser Git et GitHub est crucial pour collaborer efficacement dans un environnement de développement réel. Pour les étudiants ou les professionnels, maîtriser **Git et GitHub** est crucial pour collaborer efficacement dans un environnement de développement réel.
+
+Dans cette formation en présentiel animée par un instructeur, les participants apprendront  les bases de `Git et Github` et seront à la fin capables de combiner plusieurs commandes Git pour gerer les versions de leur codes  .
+
+-   **Durée:** 02 jours
+
+-   **Niveau:** Débutant
+
+-   **Prérequis:** Être familier SE Unix/Linux
+
+:::
+:::
