@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Ousmane Ouedraogo">
+<meta name="description" content="La programmation ne se résume pas à rédiger des lignes de code. C’est un processus logique et systématique qui transforme des idées abstraites en instructions compréhensibles par un ordinateur. Ce blog se propose d’explorer la phase de réflexion qui sous-tend le codage, en mettant en lumière l’importance de la résolution de problèmes et de la conception critique dans la création de programmes efficaces. À travers des exemples concrets, comme l’algorithme de tri à bulle, nous illustrerons comment des tâches apparemment simples nécessitent une planification rigoureuse pour être comprises par une machine.">
+
+<title>Programmer c’est réfléchir et non (juste) rédiger des lignes de code</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/cookie-consent/cookie-consent.js"></script>
+<link href="../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
+  }
+}</script>
+
+<script type="text/javascript" charset="UTF-8">
+document.addEventListener('DOMContentLoaded', function () {
+cookieconsent.run({
+  "notice_banner_type":"simple",
+  "consent_type":"express",
+  "palette":"light",
+  "language":"en",
+  "page_load_consent_levels":["strictly-necessary"],
+  "notice_banner_reject_button_hide":false,
+  "preferences_center_close_button_hide":false,
+  "website_name":""
+  ,
+"language":"fr"
+  });
+});
+</script> 
+  
+
+
+<link rel="stylesheet" href="../styles/styles.css">
+<meta property="og:title" content="Programmer c’est réfléchir et non (juste) rédiger des lignes de code">
+<meta property="og:description" content="La programmation ne se résume pas à rédiger des lignes de code. C’est un processus logique et systématique qui transforme des idées abstraites en instructions compréhensibles par un ordinateur. Ce blog se propose d’explorer la phase de réflexion qui sous-tend le codage, en mettant en lumière l’importance de la résolution de problèmes et de la conception critique dans la création de programmes efficaces. À travers des exemples concrets, comme l’algorithme de tri à bulle, nous illustrerons comment des tâches apparemment simples nécessitent une planification rigoureuse pour être comprises par une machine.">
+<meta property="og:image" content="kmeans-files/kmeans-cover.jpg">
+<meta name="twitter:title" content="Programmer c’est réfléchir et non (juste) rédiger des lignes de code">
+<meta name="twitter:description" content="La programmation ne se résume pas à rédiger des lignes de code. C’est un processus logique et systématique qui transforme des idées abstraites en instructions compréhensibles par un ordinateur. Ce blog se propose d’explorer la phase de réflexion qui sous-tend le codage, en mettant en lumière l’importance de la résolution de problèmes et de la conception critique dans la création de programmes efficaces. À travers des exemples concrets, comme l’algorithme de tri à bulle, nous illustrerons comment des tâches apparemment simples nécessitent une planification rigoureuse pour être comprises par une machine.">
+<meta name="twitter:image" content="kmeans-files/kmeans-cover.jpg">
+<meta name="twitter:creator" content="@oousmane_11">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Ousmane Ouedraogo</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../blog.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../formations.html"> 
+<span class="menu-text">Formations</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../Projets.html"> 
+<span class="menu-text">Projets</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../CV.html"> 
+<span class="menu-text">CV</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/oousmane_11"> <i class="bi bi-twitter" role="img" aria-label="twitter">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/oousmane"> <i class="bi bi-github" role="img" aria-label="github">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.facebook.com/oousmane.aly"> <i class="bi bi-facebook" role="img" aria-label="facebook">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Basculer le mode sombre"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Programmer c’est réfléchir et non (juste) rédiger des lignes de code</h1>
+            <p class="subtitle lead">De la pensée à l’exécution : l’art de concevoir du code</p>
+                  <div>
+        <div class="description">
+          <p>La programmation ne se résume pas à rédiger des lignes de code. C’est un processus logique et systématique qui transforme des idées abstraites en instructions compréhensibles par un ordinateur. Ce blog se propose d’explorer la phase de réflexion qui sous-tend le codage, en mettant en lumière l’importance de la résolution de problèmes et de la conception critique dans la création de programmes efficaces. À travers des exemples concrets, comme l’algorithme de tri à bulle, nous illustrerons comment des tâches apparemment simples nécessitent une planification rigoureuse pour être comprises par une machine.</p>
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">Programmation</div>
+                <div class="quarto-category">Codage</div>
+                <div class="quarto-category">Algorithmes</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Auteur·rice</div>
+      <div class="quarto-title-meta-contents">
+               <p><a href="https://oousmane.github.io">Ousmane Ouedraogo</a> <a href="https://orcid.org/0000-0002-6349-41468" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Date de publication</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">11 septembre 2024</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#la-programmation-bien-plus-quun-simple-code-une-symphonie-de-la-pensée" id="toc-la-programmation-bien-plus-quun-simple-code-une-symphonie-de-la-pensée" class="nav-link" data-scroll-target="#la-programmation-bien-plus-quun-simple-code-une-symphonie-de-la-pensée">La programmation : bien plus qu’un simple code, une symphonie de la pensée</a></li>
+  </ul></li>
+  <li><a href="#comprendre-les-fondamentaux" id="toc-comprendre-les-fondamentaux" class="nav-link" data-scroll-target="#comprendre-les-fondamentaux">Comprendre les fondamentaux</a>
+  <ul class="collapse">
+  <li><a href="#quest-ce-que-la-programmation" id="toc-quest-ce-que-la-programmation" class="nav-link" data-scroll-target="#quest-ce-que-la-programmation">Qu’est-ce que la programmation ?</a></li>
+  <li><a href="#quest-ce-quun-algorithme" id="toc-quest-ce-quun-algorithme" class="nav-link" data-scroll-target="#quest-ce-quun-algorithme">Qu’est ce qu’un algorithme ?</a></li>
+  <li><a href="#par-où-commencé-laventure-de-la-programmation" id="toc-par-où-commencé-laventure-de-la-programmation" class="nav-link" data-scroll-target="#par-où-commencé-laventure-de-la-programmation">Par où commencé l’aventure de la programmation ?</a></li>
+  </ul></li>
+  <li><a href="#étude-de-cas-un-célèbre-algorithme-le-tri-à-bulles" id="toc-étude-de-cas-un-célèbre-algorithme-le-tri-à-bulles" class="nav-link" data-scroll-target="#étude-de-cas-un-célèbre-algorithme-le-tri-à-bulles">Étude de cas : Un célèbre algorithme, le tri à bulles !</a>
+  <ul class="collapse">
+  <li><a href="#cest-quoi-trier" id="toc-cest-quoi-trier" class="nav-link" data-scroll-target="#cest-quoi-trier">C’est quoi trier ?</a></li>
+  <li><a href="#tri-à-bulle-explication-étape-par-étape" id="toc-tri-à-bulle-explication-étape-par-étape" class="nav-link" data-scroll-target="#tri-à-bulle-explication-étape-par-étape">Tri à bulle : explication étape par étape</a></li>
+  </ul></li>
+  <li><a href="#implémentation-du-tri-à-bulle-en-r" id="toc-implémentation-du-tri-à-bulle-en-r" class="nav-link" data-scroll-target="#implémentation-du-tri-à-bulle-en-r">Implémentation du tri à bulle en R</a>
+  <ul class="collapse">
+  <li><a href="#une-traduction-brute-de-lalogrithme" id="toc-une-traduction-brute-de-lalogrithme" class="nav-link" data-scroll-target="#une-traduction-brute-de-lalogrithme">Une traduction brute de l’alogrithme</a></li>
+  <li><a href="#une-version-plus-optimisée-et-professionnelle" id="toc-une-version-plus-optimisée-et-professionnelle" class="nav-link" data-scroll-target="#une-version-plus-optimisée-et-professionnelle">Une version plus optimisée et professionnelle</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<blockquote class="blockquote">
+<p>Programming is not about typing. It’s about thinking.</p>
+</blockquote>
+<p><strong>Rich Hickey</strong></p>
+<section id="la-programmation-bien-plus-quun-simple-code-une-symphonie-de-la-pensée" class="level3">
+<h3 class="anchored" data-anchor-id="la-programmation-bien-plus-quun-simple-code-une-symphonie-de-la-pensée">La programmation : bien plus qu’un simple code, une symphonie de la pensée</h3>
+<p>Imaginez un chef d’orchestre dirigeant une symphonie complexe. Chaque note, chaque pause, chaque mouvement est soigneusement orchestré pour créer une harmonie parfaite. C’est exactement ce qu’est la programmation : une symphonie de la pensée. Une des symphonies, vachement bien organisée, que j’adore est par exemple l’Intro de Game Of Thrones “The Main” par l’Excéllent <a href="https://fr.wikipedia.org/wiki/Ramin_Djawadi">Ramin Djawadi</a>.</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/SJZfCg51xlU" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<p>C’est beau n’est-ce pas? On ne peut s’empêcher de frissonner en observant le chef d’orchestre plonger dans son univers musical, comme transporté dans une dimension parallèle. Ce qui me captive réellement, c’est sa capacité à entraîner à chaque tour de poignet chaque musicien dans cette danse harmonieuse, créant une synergie presque palpable. Quel délice ! Bref revenons à la programmation.</p>
+<p>Loin d’être un simple exercice de frappe frénétique sur un clavier, la programmation est un art subtil qui requiert une réflexion profonde et structurée. C’est un voyage intellectuel où chaque ligne de code est le fruit d’une suite de décisions logiques, chaque fonction représente une solution élégante à un défi plus ou moins complexe. Le véritable pouvoir du programmeur réside dans sa capacité à décomposer des problèmes apparemment insurmontables en une série d’étapes logiques simples et exécutables.</p>
+<p>C’est cette alchimie de la pensée qui transforme des concepts abstraits en réalité numérique, donnant vie à des idées et façonnant le monde qui nous entoure. L’outil est à main, ce que la programmation est à la pensée. En effet, lorsque l’on regarde un programmeur plongé dans son écran, ce que l’on voit n’est que la partie visible de l’iceberg. Sous la surface bouillonne un océan de réflexion, d’analyse et de créativité.</p>
+</section>
+</section>
+<section id="comprendre-les-fondamentaux" class="level2">
+<h2 class="anchored" data-anchor-id="comprendre-les-fondamentaux">Comprendre les fondamentaux</h2>
+<section id="quest-ce-que-la-programmation" class="level3">
+<h3 class="anchored" data-anchor-id="quest-ce-que-la-programmation">Qu’est-ce que la programmation ?</h3>
+<p>La programmation informatique consiste à écrire des instructions codées destinées à un ordinateur, un logiciel ou une application pour qu’ils réalisent une tâche spécifique. Les programmeurs créent ce code afin de résoudre divers problèmes et s’assurer que les logiciels et applications fonctionnent correctement. Ce processus implique souvent de concevoir des stratégies visant à améliorer le code pour mieux répondre aux objectifs de l’organisation. La plupart des programmeurs utilisent différents langages de programmation, comme R, Python,Julia ou Rust. Je cite ceux la en particulier car ils représentent l’avenir de la programmation. C’est mon avis.</p>
+<p>Le travail quotidien d’un programmeur est varié : il peut s’agir d’écrire du code, de mettre à jour des logiciels pour corriger des failles de sécurité ou des bugs, de tester des applications, de déboguer du code pour repérer des erreurs ou de traduire du code d’un langage à un autre. C’est une activité en constante évolution, où les programmateurs trouvent sans cesse de nouvelles façons de communiquer efficacement avec les machines. La programmation a beaucoup changé au fil des décennies. Autrefois, elle se faisait à l’aide de cartes perforées lues par des machines ; aujourd’hui, elle intègre des interfaces “glisser-déposer” qui accélèrent considérablement le processus de création.</p>
+<p>Bien que les termes “programmation” et “codage” soient parfois utilisés de manière interchangeable, ils ne sont pas tout à fait synonymes. La programmation désigne le processus mental qui consiste à concevoir les instructions destinées à l’ordinateur, tandis que le codage se réfère à la traduction de ces instructions dans un langage compréhensible par la machine. Apprendre à programmer, c’est donc non seulement apprendre à écrire du code, mais aussi à penser de manière logique et structurée pour résoudre des problèmes.</p>
+</section>
+<section id="quest-ce-quun-algorithme" class="level3">
+<h3 class="anchored" data-anchor-id="quest-ce-quun-algorithme">Qu’est ce qu’un algorithme ?</h3>
+<p>Les algorithmes sont au cœur de la programmation informatique, agissant comme des recettes détaillées pour résoudre des problèmes ou accomplir des tâches spécifiques. Un algorithme se décompose en suites d’instructions primitives, véritables briques élémentaires compréhensibles par la machine. Les ordinateurs ne comprennent pas des concepts abstraits comme “trier”, mais ils exécutent une série d’instructions élémentaires qui, ensemble, aboutissent à la tâche.</p>
+<p>Chaque instruction primitive représente une action simple et indivisible, comme l’addition de deux nombres ou le déplacement d’une donnée en mémoire. La puissance des algorithmes réside dans leur capacité à combiner ces instructions basiques de manière logique et structurée, permettant ainsi de réaliser des opérations complexes.</p>
+<p>Il est important de souligner au passage qu’en optimisant l’utilisation de ces instructions de base, on peut améliorer la performance des algorithmes, ce qui est essentiel pour des applications à grande échelle comme le traitement de données ou même l’intelligence artificielle.</p>
+</section>
+<section id="par-où-commencé-laventure-de-la-programmation" class="level3">
+<h3 class="anchored" data-anchor-id="par-où-commencé-laventure-de-la-programmation">Par où commencé l’aventure de la programmation ?</h3>
+<p>Si vous souhaitez apprendre à programmer, mon premier conseil serait de suivre quelques cours sur l’algorithmique. En faisant cela, vous aurez de solides bases pour apprendre n’importe quel langage de programmation (langage machine), qui comme toute langue possède des règles de grammaire et de vocabulaire : la Syntaxe !</p>
+<p>Pour quiconque aspire à maîtriser l’art de la programmation, l’algorithmique s’impose comme un point de départ incontournable. Cette discipline fondamentale vous enseigne à penser de manière structurée, à décomposer des problèmes complexes en étapes logiques et à concevoir des solutions efficaces. En vous plongeant d’abord dans l’algorithmique, vous développerez une compréhension profonde des principes qui sous-tendent tous les langages de programmation. Cette base solide vous permettra ensuite d’aborder n’importe quel langage avec aisance, car vous aurez déjà assimilé l’essence de la programmation. Chaque langage, avec sa syntaxe propre, ne sera plus qu’un nouvel outil pour exprimer vos idées algorithmiques. Ainsi, en investissant du temps dans l’apprentissage de l’algorithmique, vous vous dotez des compétences nécessaires pour devenir un programmeur polyvalent et efficace, capable de s’adapter rapidement à l’évolution constante du monde informatique.</p>
+<p>Maintenant que nous avons couvert quelques concepts fondamentaux, il est temps de les mettre en pratique à travers une étude de cas concrète. Nous allons nous pencher sur un problème de tri, un exercice courant en programmation, que nous coderons ensemble dans le langage R. Cette étude de cas nous permettra de renforcer notre compréhension tout en appliquant les techniques apprises dans un contexte réel.</p>
+</section>
+</section>
+<section id="étude-de-cas-un-célèbre-algorithme-le-tri-à-bulles" class="level2">
+<h2 class="anchored" data-anchor-id="étude-de-cas-un-célèbre-algorithme-le-tri-à-bulles">Étude de cas : Un célèbre algorithme, le tri à bulles !</h2>
+<section id="cest-quoi-trier" class="level3">
+<h3 class="anchored" data-anchor-id="cest-quoi-trier">C’est quoi trier ?</h3>
+<p>Un exemple courant est le tri de nombre Bien</p>
+</section>
+<section id="tri-à-bulle-explication-étape-par-étape" class="level3">
+<h3 class="anchored" data-anchor-id="tri-à-bulle-explication-étape-par-étape">Tri à bulle : explication étape par étape</h3>
+<p>Le <strong>tri à bulles</strong> est un algorithme de tri simple qui repose sur le principe de comparer et d’échanger des éléments adjacents dans une liste, afin de les placer dans le bon ordre. À chaque itération, les éléments sont parcourus séquentiellement : si un élément est plus grand que le suivant (dans le cas d’un tri croissant), ils sont échangés. Ce processus est répété plusieurs fois jusqu’à ce que la liste soit entièrement triée. À chaque passe, le plus grand élément “remonte” progressivement vers la fin de la liste, ce qui explique le nom de “tri à bulles”.</p>
+<p>Ici nous présentons le pseudo-code de l’agorithme de tri à bulles.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../img/algo-tri-bulle.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Algorithme du tri à bulles"><img src="../img/algo-tri-bulle.png" class="img-fluid figure-img" alt="Algorithme du tri à bulles"></a></p>
+<figcaption>Algorithme du tri à bulles</figcaption>
+</figure>
+</div>
+<p>Le <strong>tri à bulles</strong> est un algorithme de tri simple mais inefficace pour les grandes listes, avec une complexité temporelle de (O(n^2)) dans le pire des cas. Il est facile à comprendre et à implémenter, ce qui en fait un bon choix à des fins éducatives ou pour de petites listes. L’algorithme est <strong>in-place</strong>, ce qui signifie qu’il trie directement dans la liste sans nécessiter de mémoire supplémentaire significative. De plus, il est <strong>stable</strong>, maintenant l’ordre relatif des éléments égaux, ce qui peut être important dans certains contextes où des données avec des valeurs identiques doivent rester ordonnées selon d’autres critères.</p>
+<p>Exemple de mise en oeuvre</p>
+<p>Prenons une liste initiale : <code>[5, 2, 9, 1, 5, 6]</code>.</p>
+<p>Étape 1 :</p>
+<ul>
+<li><p>Compare 5 et 2 : comme 5 &gt; 2, on échange → <code>[2, 5, 9, 1, 5, 6]</code></p></li>
+<li><p>Compare 5 et 9 : pas d’échange → <code>[2, 5, 9, 1, 5, 6]</code></p></li>
+<li><p>Compare 9 et 1 : échange car 9 &gt; 1 → <code>[2, 5, 1, 9, 5, 6]</code></p></li>
+<li><p>Compare 9 et 5 : échange car 9 &gt; 5 → <code>[2, 5, 1, 5, 9, 6]</code></p></li>
+<li><p>Compare 9 et 6 : échange car 9 &gt; 6 → <code>[2, 5, 1, 5, 6, 9]</code></p></li>
+</ul>
+<p>À la fin de la première passe, le plus grand élément (9) est en dernière position.</p>
+<p>Étape 2 :</p>
+<ul>
+<li><p>Compare 2 et 5 : pas d’échange → <code>[2, 5, 1, 5, 6, 9]</code></p></li>
+<li><p>Compare 5 et 1 : échange car 5 &gt; 1 → <code>[2, 1, 5, 5, 6, 9]</code></p></li>
+<li><p>Compare 5 et 5 : pas d’échange → <code>[2, 1, 5, 5, 6, 9]</code></p></li>
+<li><p>Compare 5 et 6 : pas d’échange → <code>[2, 1, 5, 5, 6, 9]</code></p></li>
+</ul>
+<p>La deuxième passe confirme que le plus grand élément restant (6) est en place.</p>
+<p>Étape 3 :</p>
+<ul>
+<li>Compare 2 et 1 : échange car 2 &gt; 1 → <code>[1, 2, 5, 5, 6, 9]</code></li>
+</ul>
+<p>Après cette troisième passe, la liste est entièrement triée.</p>
+<p>Liste finale :</p>
+<ul>
+<li>La liste triée est : <code>[1, 2, 5, 5, 6, 9]</code></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="implémentation-du-tri-à-bulle-en-r" class="level2">
+<h2 class="anchored" data-anchor-id="implémentation-du-tri-à-bulle-en-r">Implémentation du tri à bulle en R</h2>
+<section id="une-traduction-brute-de-lalogrithme" class="level3">
+<h3 class="anchored" data-anchor-id="une-traduction-brute-de-lalogrithme">Une traduction brute de l’alogrithme</h3>
+<p>Le tri à bulles est un algorithme de tri simple que nous avons déjà exploré à travers son pseudo-code. Ce dernier décrit les étapes fondamentales de l’algorithme de manière abstraite, indépendamment de tout langage de programmation. Désormais, nous allons procéder à une traduction directe de cet algorithme en code fonctionnel. Il est important de noter que cette traduction brute peut être réalisée dans n’importe quel langage de programmation, car les concepts sous-jacents du tri à bulles restent les mêmes, quel que soit le langage utilisé.</p>
+<p>Ici, nous présentons la traduction brute dans le langage de programmation R.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>bubble_sort <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">length</span>(x)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>(n<span class="dv">-1</span>)) {</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>(n<span class="dv">-1</span>)) {</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (x[j] <span class="sc">&gt;</span> x[j<span class="sc">+</span><span class="dv">1</span>]) {</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        c <span class="ot">&lt;-</span> x[j]</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        x[j] <span class="ot">&lt;-</span> x[j<span class="sc">+</span><span class="dv">1</span>]</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        x[j<span class="sc">+</span><span class="dv">1</span>] <span class="ot">&lt;-</span> c</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(x)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="une-version-plus-optimisée-et-professionnelle" class="level3">
+<h3 class="anchored" data-anchor-id="une-version-plus-optimisée-et-professionnelle">Une version plus optimisée et professionnelle</h3>
+<p>Voici une version plus optimisée de la fonction <code>bubble_sort</code>, qui intègre des validations supplémentaires pour gérer les cas particuliers, comme lorsque <code>x</code> est un scalaire ou lorsque des valeurs manquantes (<code>NA</code>) sont présentes.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>bubble_sort <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Validation: vérifier que x est un vecteur numérique</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.numeric</span>(x)) {</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">"Erreur : l'entrée doit être un vecteur numérique."</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Validation: si x est un scalaire (longueur 1), retourner directement x</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">length</span>(x) <span class="sc">==</span> <span class="dv">1</span>) {</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(x)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Gestion des valeurs NA : retirer ou générer une erreur selon le contexte</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">any</span>(<span class="fu">is.na</span>(x))) {</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">"Erreur : le vecteur contient des valeurs manquantes (NA)."</span>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">length</span>(x)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Bubble sort</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>(n<span class="dv">-1</span>)) {</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>(n<span class="sc">-</span>i)) {  <span class="co"># Optimisation : éviter les comparaisons inutiles</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (x[j] <span class="sc">&gt;</span> x[j<span class="sc">+</span><span class="dv">1</span>]) {</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Échange des éléments</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>        c <span class="ot">&lt;-</span> x[j]</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>        x[j] <span class="ot">&lt;-</span> x[j<span class="sc">+</span><span class="dv">1</span>]</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>        x[j<span class="sc">+</span><span class="dv">1</span>] <span class="ot">&lt;-</span> c</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(x)</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>En plus d’améliorer la robustesse, cette version inclut une vérification afin de garantir que l’entrée est un vecteur numérique valide. L’algorithme a également été optimisé pour réduire le nombre de comparaisons inutiles, ce qui améliore son efficacité sur les grandes listes.</p>
+</section>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<ul>
+<li>Les algorithmes de tri, Livret 3. 2O22 . &lt;DÉ&gt;CODAGE Éducation numérique pour le Cycle 2 (5-6e)</li>
+</ul>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{ouedraogo2024,
+  author = {Ouedraogo, Ousmane},
+  title = {Programmer c’est réfléchir et non (juste) rédiger des lignes
+    de code},
+  date = {2024-09-11},
+  url = {https://oousmane.github.io/programming-is-thinking},
+  langid = {fr}
+}
+</code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">Veuillez citer ce travail comme suit&nbsp;:</div><div id="ref-ouedraogo2024" class="csl-entry quarto-appendix-citeas" role="listitem">
+Ouedraogo, Ousmane. 2024. <span>“Programmer c’est réfléchir et non
+(juste) rédiger des lignes de code.”</span> September 11, 2024. <a href="https://oousmane.github.io/programming-is-thinking">https://oousmane.github.io/programming-is-thinking</a>.
+</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copié");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copié");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Réalisé avec <a href="https://quarto.org"><img src="https://quarto.org/quarto.png" class="img-fluid" alt="Quarto" width="65"></a></p>
+</div>   
+    <div class="nav-footer-center">
+<p><a href="Licence.qmd">Licence</a></p>
+<div class="cookie-consent-footer"><a href="#" id="open_preferences_center">Cookie Preferences</a></div></div>
+    <div class="nav-footer-right">
+<p><a href="https://github.com/oousmane/quarto-blog/"><i class="fa-brands fa-github" aria-label="github"></i></a></p>
+</div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","loop":false,"descPosition":"bottom","selector":".lightbox","openEffect":"zoom"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

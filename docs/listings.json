@@ -2,6 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/programming-is-thinking.html",
       "/posts/kmeans.html",
       "/posts/bienvenue.html"
     ]

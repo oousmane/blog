@@ -1,0 +1,208 @@
+---
+title: "Programmer c’est réfléchir et non (juste) rédiger des lignes de code"
+subtitle: "De la pensée à l'exécution : l’art de concevoir du code"
+description: |
+ La programmation ne se résume pas à rédiger des lignes de code. C’est un processus logique et systématique qui transforme des idées abstraites en instructions compréhensibles par un ordinateur. Ce blog se propose d'explorer la phase de réflexion qui sous-tend le codage, en mettant en lumière l’importance de la résolution de problèmes et de la conception critique dans la création de programmes efficaces. À travers des exemples concrets, comme l'algorithme de tri à bulle, nous illustrerons comment des tâches apparemment simples nécessitent une planification rigoureuse pour être comprises par une machine. 
+title-block-banner: true
+toc: true
+image: kmeans-files/kmeans-cover.jpg
+date: "2024-09-11"
+categories: [Programmation,Codage, Algorithmes]
+author:
+  - name: Ousmane Ouedraogo
+    url: https://oousmane.github.io
+    orcid: 0000-0002-6349-41468
+editor: visual
+citation:
+ url: https://oousmane.github.io/programming-is-thinking
+---
+
+## Introduction
+
+> Programming is not about typing. It's about
+thinking.
+
+**Rich Hickey**
+
+### La programmation : bien plus qu'un simple code, une symphonie de la pensée
+
+Imaginez un chef d'orchestre dirigeant une symphonie complexe. Chaque note, chaque pause, chaque mouvement est soigneusement orchestré pour créer une harmonie parfaite. C'est exactement ce qu'est la programmation : une symphonie de la pensée. 
+Une des symphonies, vachement bien organisée, que j'adore est par exemple l'Intro de Game Of Thrones "The Main" par l'Excéllent [Ramin Djawadi](https://fr.wikipedia.org/wiki/Ramin_Djawadi).
+
+
+{{< video https://youtu.be/SJZfCg51xlU >}}
+
+C'est beau n'est-ce pas? On ne peut s'empêcher de frissonner en observant le chef d'orchestre plonger dans son univers musical, comme transporté dans une dimension parallèle. Ce qui me captive réellement, c'est sa capacité à entraîner à chaque tour de poignet chaque musicien dans cette danse harmonieuse, créant une synergie presque palpable. Quel délice ! Bref revenons à la programmation.
+
+Loin d'être un simple exercice de frappe frénétique sur un clavier, la programmation est un art subtil qui requiert une réflexion profonde et structurée. C'est un voyage intellectuel où chaque ligne de code est le fruit d'une suite de décisions logiques, chaque fonction représente une solution élégante à un défi plus ou moins complexe. Le véritable pouvoir du programmeur réside dans sa capacité à décomposer des problèmes apparemment insurmontables en une série d'étapes logiques simples et exécutables. 
+
+C'est cette alchimie de la pensée qui transforme des concepts abstraits en réalité numérique, donnant vie à des idées et façonnant le monde qui nous entoure. L'outil est à main, ce que la programmation est à la pensée. En effet, lorsque l'on regarde un programmeur plongé dans son écran, ce que l'on voit n'est que la partie visible de l'iceberg. Sous la surface bouillonne un océan de réflexion, d'analyse et de créativité.
+
+## Comprendre les fondamentaux
+
+### Qu’est-ce que la programmation ?
+
+La programmation informatique consiste à écrire des instructions codées destinées à un ordinateur, un logiciel ou une application pour qu'ils réalisent une tâche spécifique.
+Les programmeurs créent ce code afin de résoudre divers problèmes et s'assurer que les logiciels et applications fonctionnent correctement.
+Ce processus implique souvent de concevoir des stratégies visant à améliorer le code pour mieux répondre aux objectifs de l'organisation.
+La plupart des programmeurs utilisent différents langages de programmation, comme R, Python,Julia ou Rust. Je cite ceux la en particulier car ils représentent l'avenir de la programmation. C'est mon avis.
+
+Le travail quotidien d'un programmeur est varié : il peut s'agir d'écrire du code, de mettre à jour des logiciels pour corriger des failles de sécurité ou des bugs, de tester des applications, de déboguer du code pour repérer des erreurs ou de traduire du code d'un langage à un autre.
+C'est une activité en constante évolution, où les programmateurs trouvent sans cesse de nouvelles façons de communiquer efficacement avec les machines.
+La programmation a beaucoup changé au fil des décennies.
+Autrefois, elle se faisait à l'aide de cartes perforées lues par des machines  ; aujourd'hui, elle intègre des interfaces "glisser-déposer" qui accélèrent considérablement le processus de création.
+
+Bien que les termes "programmation" et "codage" soient parfois utilisés de manière interchangeable, ils ne sont pas tout à fait synonymes.
+La programmation désigne le processus mental qui consiste à concevoir les instructions destinées à l'ordinateur, tandis que le codage se réfère à la traduction de ces instructions dans un langage compréhensible par la machine.
+Apprendre à programmer, c'est donc non seulement apprendre à écrire du code, mais aussi à penser de manière logique et structurée pour résoudre des problèmes.
+
+### Qu'est ce qu'un algorithme ?
+
+Les algorithmes sont au cœur de la programmation informatique, agissant comme des recettes détaillées pour résoudre des problèmes ou accomplir des tâches spécifiques. Un algorithme se décompose en suites d'instructions primitives, véritables briques élémentaires compréhensibles par la machine. Les ordinateurs ne comprennent pas des concepts abstraits comme "trier", mais ils exécutent une série d'instructions élémentaires qui, ensemble, aboutissent à la tâche.
+
+Chaque instruction primitive représente une action simple et indivisible, comme l'addition de deux nombres ou le déplacement d'une donnée en mémoire. La puissance des algorithmes réside dans leur capacité à combiner ces instructions basiques de manière logique et structurée, permettant ainsi de réaliser des opérations complexes.
+
+Il est important de souligner au passage qu'en optimisant l'utilisation de ces instructions de base, on peut améliorer la performance des algorithmes, ce qui est essentiel pour des applications à grande échelle comme le traitement de données ou même l'intelligence artificielle.
+
+### Par où commencé l'aventure de la programmation ? 
+
+Si vous souhaitez apprendre à programmer, mon premier conseil serait de suivre quelques cours  sur l'algorithmique. En faisant cela, vous aurez de solides bases pour apprendre n'importe quel langage de programmation (langage machine), qui comme toute langue possède des règles de grammaire et de vocabulaire :  la Syntaxe !
+
+Pour quiconque aspire à maîtriser l'art de la programmation, l'algorithmique s'impose comme un point de départ incontournable. Cette discipline fondamentale vous enseigne à penser de manière structurée, à décomposer des problèmes complexes en étapes logiques et à concevoir des solutions efficaces. En vous plongeant d'abord dans l'algorithmique, vous développerez une compréhension profonde des principes qui sous-tendent tous les langages de programmation. Cette base solide vous permettra ensuite d'aborder n'importe quel langage avec aisance, car vous aurez déjà assimilé l'essence de la programmation. Chaque langage, avec sa syntaxe propre, ne sera plus qu'un nouvel outil pour exprimer vos idées algorithmiques. Ainsi, en investissant du temps dans l'apprentissage de l'algorithmique, vous vous dotez des compétences nécessaires pour devenir un programmeur polyvalent et efficace, capable de s'adapter rapidement à l'évolution constante du monde informatique.
+
+
+Maintenant que nous avons couvert quelques concepts fondamentaux, il est temps de les mettre en pratique à travers une étude de cas concrète. Nous allons nous pencher sur un problème de tri, un exercice courant en programmation, que nous coderons ensemble dans le langage R. Cette étude de cas nous permettra de renforcer notre compréhension tout en appliquant les techniques apprises dans un contexte réel.
+
+
+## Étude de cas : Un célèbre algorithme, le tri à bulles !
+
+### C'est quoi trier ?
+Un exemple courant est le tri de nombre
+Bien
+
+
+
+### Tri à bulle : explication étape par étape
+
+Le **tri à bulles** est un algorithme de tri simple qui repose sur le principe de comparer et d'échanger des éléments adjacents dans une liste, afin de les placer dans le bon ordre.
+À chaque itération, les éléments sont parcourus séquentiellement : si un élément est plus grand que le suivant (dans le cas d'un tri croissant), ils sont échangés.
+Ce processus est répété plusieurs fois jusqu'à ce que la liste soit entièrement triée.
+À chaque passe, le plus grand élément "remonte" progressivement vers la fin de la liste, ce qui explique le nom de "tri à bulles".
+
+Ici nous présentons le pseudo-code de l'agorithme de tri à bulles.
+
+![Algorithme du tri à bulles](/img/algo-tri-bulle.png)
+
+Le **tri à bulles** est un algorithme de tri simple mais inefficace pour les grandes listes, avec une complexité temporelle de (O(n\^2)) dans le pire des cas.
+Il est facile à comprendre et à implémenter, ce qui en fait un bon choix à des fins éducatives ou pour de petites listes.
+L'algorithme est **in-place**, ce qui signifie qu'il trie directement dans la liste sans nécessiter de mémoire supplémentaire significative.
+De plus, il est **stable**, maintenant l'ordre relatif des éléments égaux, ce qui peut être important dans certains contextes où des données avec des valeurs identiques doivent rester ordonnées selon d'autres critères.
+
+Exemple de mise en oeuvre
+
+Prenons une liste initiale : `[5, 2, 9, 1, 5, 6]`.
+
+Étape 1 :
+
+-   Compare 5 et 2 : comme 5 \> 2, on échange → `[2, 5, 9, 1, 5, 6]`
+
+-   Compare 5 et 9 : pas d'échange → `[2, 5, 9, 1, 5, 6]`
+
+-   Compare 9 et 1 : échange car 9 \> 1 → `[2, 5, 1, 9, 5, 6]`
+
+-   Compare 9 et 5 : échange car 9 \> 5 → `[2, 5, 1, 5, 9, 6]`
+
+-   Compare 9 et 6 : échange car 9 \> 6 → `[2, 5, 1, 5, 6, 9]`
+
+À la fin de la première passe, le plus grand élément (9) est en dernière position.
+
+Étape 2 :
+
+-   Compare 2 et 5 : pas d'échange → `[2, 5, 1, 5, 6, 9]`
+
+-   Compare 5 et 1 : échange car 5 \> 1 → `[2, 1, 5, 5, 6, 9]`
+
+-   Compare 5 et 5 : pas d'échange → `[2, 1, 5, 5, 6, 9]`
+
+-   Compare 5 et 6 : pas d'échange → `[2, 1, 5, 5, 6, 9]`
+
+La deuxième passe confirme que le plus grand élément restant (6) est en place.
+
+Étape 3 :
+
+-   Compare 2 et 1 : échange car 2 \> 1 → `[1, 2, 5, 5, 6, 9]`
+
+Après cette troisième passe, la liste est entièrement triée.
+
+Liste finale :
+
+-   La liste triée est : `[1, 2, 5, 5, 6, 9]`
+
+------------------------------------------------------------------------
+
+## Implémentation du tri à bulle en R
+
+### Une traduction brute de l'alogrithme
+
+Le tri à bulles est un algorithme de tri simple que nous avons déjà exploré à travers son pseudo-code. Ce dernier décrit les étapes fondamentales de l'algorithme de manière abstraite, indépendamment de tout langage de programmation. Désormais, nous allons procéder à une traduction directe de cet algorithme en code fonctionnel. Il est important de noter que cette traduction brute peut être réalisée dans n'importe quel langage de programmation, car les concepts sous-jacents du tri à bulles restent les mêmes, quel que soit le langage utilisé.
+
+Ici, nous présentons la traduction brute dans le langage de programmation R.
+
+``` r
+bubble_sort <- function(x) {
+  n <- length(x)
+  for (i in 1:(n-1)) {
+    for (j in 1:(n-1)) {
+      if (x[j] > x[j+1]) {
+        c <- x[j]
+        x[j] <- x[j+1]
+        x[j+1] <- c
+      }
+    }
+  }
+  return(x)
+}
+```
+### Une version plus optimisée et professionnelle 
+
+Voici une version plus optimisée de la fonction `bubble_sort`, qui intègre des validations supplémentaires pour gérer les cas particuliers, comme lorsque `x` est un scalaire ou lorsque des valeurs manquantes (`NA`) sont présentes. 
+```r
+bubble_sort <- function(x) {
+  # Validation: vérifier que x est un vecteur numérique
+  if (!is.numeric(x)) {
+    stop("Erreur : l'entrée doit être un vecteur numérique.")
+  }
+  
+  # Validation: si x est un scalaire (longueur 1), retourner directement x
+  if (length(x) == 1) {
+    return(x)
+  }
+  
+  # Gestion des valeurs NA : retirer ou générer une erreur selon le contexte
+  if (any(is.na(x))) {
+    stop("Erreur : le vecteur contient des valeurs manquantes (NA).")
+  }
+  
+  n <- length(x)
+  
+  # Bubble sort
+  for (i in 1:(n-1)) {
+    for (j in 1:(n-i)) {  # Optimisation : éviter les comparaisons inutiles
+      if (x[j] > x[j+1]) {
+        # Échange des éléments
+        c <- x[j]
+        x[j] <- x[j+1]
+        x[j+1] <- c
+      }
+    }
+  }
+  
+  return(x)
+}
+
+```
+
+En plus d'améliorer la robustesse, cette version inclut une vérification afin de garantir que l'entrée est un vecteur numérique valide. L'algorithme a également été optimisé pour réduire le nombre de comparaisons inutiles, ce qui améliore son efficacité sur les grandes listes.
+
+## References 
+- Les algorithmes de tri, Livret 3. 2O22 . <DÉ>CODAGE Éducation numérique pour le Cycle 2 (5-6e)
