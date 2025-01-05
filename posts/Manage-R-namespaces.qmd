@@ -1,0 +1,53 @@
+---
+title: "Namespaces, R versus Python"
+subtitle: "La gestion des namespaces et ses implications sous R pour la lisibilité du code"
+description: |
+ La gestion des espaces de noms (namespaces) constitue une différence fondamentale entre Python et R, avec des implications importantes pour la qualité et la maintenabilité du code.
+image: namespaces/cover.jpg
+title-block-banner: true
+toc: true
+date: "2025-01-06"
+categories: [Namespaces, R, Python]
+author:
+  - name: Ousmane Ouedraogo
+    url: https://oousmane.github.io
+    orcid: 0000-0002-6349-41468
+editor: visual
+citation:
+ url: https://oousmane.github.io/programming-is-thinking
+---
+
+
+
+## Contexte
+
+Sous Python, l'importation d'une bibliothèque ne rend pas ses fonctions directement disponibles dans l'espace de noms global. Par exemple, après `import pandas`, il faut explicitement utiliser `pandas.read_csv()` ou créer un alias avec `import pandas as pd` pour utiliser `pd.read_csv()`. Cette approche stricte force les développeurs à être explicites sur l'origine des fonctions utilisées, évitant ainsi les ambiguïtés et les conflits de noms.
+
+En revanche, R adopte une approche plus permissive avec sa fonction `library()`. Quand on charge une bibliothèque comme `readr` ou `tidyverse`, leurs fonctions deviennent immédiatement disponibles dans l'espace de noms global. Si `read_csv()` existe dans plusieurs bibliothèques chargées, cela peut créer des conflits et des comportements inattendus. La solution consiste alors à utiliser la notation explicite `readr::read_csv()`.
+
+## L'importance de l'explicite dans les projets d'envergure
+
+Pour les projets d'envergure, la traçabilité et la maintenabilité du code deviennent des enjeux critiques. L'approche Python, qui force à expliciter l'origine des fonctions, présente plusieurs avantages majeurs :
+
+1. La clarté du code : En voyant directement `pd.read_csv()`, tout développeur peut immédiatement identifier la source de la fonction utilisée.
+
+2. La réduction des conflits : L'utilisation explicite des namespaces minimise les risques de conflits entre fonctions de même nom provenant de différentes bibliothèques.
+
+3. La stabilité face aux mises à jour : L'ordre de chargement des bibliothèques n'influence pas le comportement du code, contrairement à R où cet ordre peut affecter quelle version d'une fonction est effectivement utilisée.
+
+4. La facilité de maintenance : Pour les nouveaux développeurs rejoignant le projet, le code est plus facile à comprendre car les dépendances sont clairement visibles.
+
+## Bonnes pratiques recommandées
+
+Même sous R, il est fortement conseillé d'adopter des pratiques similaires à Python pour les projets professionnels :
+
+- Toujours utiliser la notation explicite (exemple : `readr::read_csv()`) pour les fonctions clés du projet
+- Documenter l'ordre de chargement des bibliothèques
+- Éviter de surcharger l'environnement global avec trop de bibliothèques
+- Privilégier des imports ciblés plutôt que des imports massifs (comme avec `tidyverse`)
+
+Cette rigueur initiale dans l'écriture du code permet d'économiser un temps précieux lors de la maintenance et de l'évolution du projet, tout en facilitant la collaboration entre développeurs.
+
+## Conclusion
+
+En conclusion, bien que R offre une flexibilité appréciable pour le prototypage rapide et l'analyse exploratoire, l'adoption de conventions strictes inspirées de Python concernant les espaces de noms devient cruciale dès que le projet prend de l'ampleur. Cette discipline de code n'est pas une contrainte mais un investissement pour la pérennité et la scalabilité des projets data.

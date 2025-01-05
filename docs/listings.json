@@ -2,6 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/Manage-R-namespaces.html",
       "/posts/programming-is-thinking.html",
       "/posts/kmeans.html",
       "/posts/bienvenue.html"

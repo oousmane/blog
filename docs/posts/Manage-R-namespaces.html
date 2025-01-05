@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Ousmane Ouedraogo">
+<meta name="description" content="La gestion des espaces de noms (namespaces) constitue une différence fondamentale entre Python et R, avec des implications importantes pour la qualité et la maintenabilité du code.">
 
-<title>Blog personel</title>
+<title>Namespaces, R versus Python</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,30 +25,28 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/cookie-consent/cookie-consent.js"></script>
-<link href="site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/cookie-consent/cookie-consent.js"></script>
+<link href="../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -74,35 +74,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Recherche"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 
 <script type="text/javascript" charset="UTF-8">
 document.addEventListener('DOMContentLoaded', function () {
@@ -122,43 +93,14 @@ cookieconsent.run({
 </script> 
   
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles/styles.css">
-<meta property="og:title" content="Blog personel">
-<meta property="og:description" content="Un blog pas que sur la science de données">
-<meta property="og:image" content="profile.jpg">
-<meta name="twitter:title" content="Blog personel">
-<meta name="twitter:description" content="Un blog pas que sur la science de données">
-<meta name="twitter:image" content="profile.jpg">
+<link rel="stylesheet" href="../styles/styles.css">
+<meta property="og:title" content="Namespaces, R versus Python">
+<meta property="og:description" content="La gestion des espaces de noms (namespaces) constitue une différence fondamentale entre Python et R, avec des implications importantes pour la qualité et la maintenabilité du code.">
+<meta property="og:image" content="namespaces/cover.jpg">
+<meta name="twitter:title" content="Namespaces, R versus Python">
+<meta name="twitter:description" content="La gestion des espaces de noms (namespaces) constitue une différence fondamentale entre Python et R, avec des implications importantes pour la qualité et la maintenabilité du code.">
+<meta name="twitter:image" content="namespaces/cover.jpg">
 <meta name="twitter:creator" content="@oousmane_11">
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -176,25 +118,25 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Ousmane Ouedraogo</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./blog.html" aria-current="page"> 
+    <a class="nav-link" href="../blog.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./formations.html"> 
+    <a class="nav-link" href="../formations.html"> 
 <span class="menu-text">Formations</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./Projets.html"> 
+    <a class="nav-link" href="../Projets.html"> 
 <span class="menu-text">Projets</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./CV.html"> 
+    <a class="nav-link" href="../CV.html"> 
 <span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item compact">
@@ -223,218 +165,109 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">Blog personel</h1>
-            <p class="subtitle lead">Un blog pas que sur la science de données</p>
-                      </div>
+    <div class="quarto-title column-body">
+      <h1 class="title">Namespaces, R versus Python</h1>
+            <p class="subtitle lead">La gestion des namespaces et ses implications sous R pour la lisibilité du code</p>
+                  <div>
+        <div class="description">
+          <p>La gestion des espaces de noms (namespaces) constitue une différence fondamentale entre Python et R, avec des implications importantes pour la qualité et la maintenabilité du code.</p>
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">Namespaces</div>
+                <div class="quarto-category">R</div>
+                <div class="quarto-category">Python</div>
+              </div>
+                  </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page-left">
+  <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Auteur·rice</div>
+      <div class="quarto-title-meta-contents">
+               <p><a href="https://oousmane.github.io">Ousmane Ouedraogo</a> <a href="https://orcid.org/0000-0002-6349-41468" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Date de publication</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">6 janvier 2025</p>
+      </div>
+    </div>
     
       
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Catégories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">Tous <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Algorithmes">Algorithmes <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Blogging">Blogging <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Clustering">Clustering <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Codage">Codage <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Github">Github <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Kmeans">Kmeans <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ML">ML <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Namespaces">Namespaces <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Programmation">Programmation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Python">Python <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Quarto">Quarto <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(1)</span></div></div></div>
-<!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
-
-
-
-
-
-<p>Bienvenue sur mon blog dont je suis ravi de partager avec vous. Pour ne rien ratez de mes posts à venir, vous pouvez souscrire à ma Newsletter.</p>
-<hr>
-<p><strong>Ousmane’s Newsletter</strong></p>
-<iframe src="https://embeds.beehiiv.com/8d641608-2c38-4922-993b-f2accb437283?slim=true" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" style="margin: 0; border-radius: 0px !important; background-color: transparent;"></iframe>
-
-
-
-
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-listing-sort" class="form-select" aria-label="Trier par" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Trier par</option>
-       <option value="index" data-direction="asc">Ordre par défaut</option>
-         <option value="listing-title" data-direction="asc">
-          Titre
-        </option>
-         <option value="listing-date-sort" data-direction="asc">
-          Date - Le plus ancien
-        </option>
-         <option value="listing-date-sort" data-direction="desc">
-          Date - Le plus récent
-        </option>
-         <option value="listing-author" data-direction="asc">
-          Auteur·rice
-        </option>
-     </select>
-  </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filtre">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+  <li><a href="#contexte" id="toc-contexte" class="nav-link active" data-scroll-target="#contexte">Contexte</a></li>
+  <li><a href="#limportance-de-lexplicite-dans-les-projets-denvergure" id="toc-limportance-de-lexplicite-dans-les-projets-denvergure" class="nav-link" data-scroll-target="#limportance-de-lexplicite-dans-les-projets-denvergure">L’importance de l’explicite dans les projets d’envergure</a></li>
+  <li><a href="#bonnes-pratiques-recommandées" id="toc-bonnes-pratiques-recommandées" class="nav-link" data-scroll-target="#bonnes-pratiques-recommandées">Bonnes pratiques recommandées</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
     </div>
-</div>
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="Namespaces,R,Python" data-listing-date-sort="1736121600000" data-listing-file-modified-sort="1736105634694" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="400">
-<a href="./posts/Manage-R-namespaces.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./posts/namespaces/cover.jpg" class="thumbnail-image card-img" style="height: 250px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Namespaces, R versus Python
-</h5>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Namespaces'); return false;">
-Namespaces
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Python'); return false;">
-Python
-</div>
-</div>
-<div class="card-text listing-description">
-La gestion des espaces de noms (namespaces) constitue une différence fondamentale entre Python et R, avec des implications importantes pour la qualité et la maintenabilité…
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Ousmane Ouedraogo
-</div>
-<div class="listing-date">
-6 janv. 2025
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="1" data-categories="Programmation,Codage,Algorithmes" data-listing-date-sort="1726012800000" data-listing-file-modified-sort="1726958970297" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1929">
-<a href="./posts/programming-is-thinking.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./posts/kmeans-files/kmeans-cover.jpg" class="thumbnail-image card-img" style="height: 250px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Programmer c’est réfléchir et non (juste) rédiger des lignes de code
-</h5>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Programmation'); return false;">
-Programmation
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Codage'); return false;">
-Codage
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Algorithmes'); return false;">
-Algorithmes
-</div>
-</div>
-<div class="card-text listing-description">
-La programmation ne se résume pas à rédiger des lignes de code. C’est un processus logique et systématique qui transforme des idées abstraites en instructions…
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Ousmane Ouedraogo
-</div>
-<div class="listing-date">
-11 sept. 2024
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="2" data-categories="Kmeans,Clustering,ML" data-listing-date-sort="1665532800000" data-listing-file-modified-sort="1736105345457" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1304">
-<a href="./posts/kmeans.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./posts/kmeans-files/kmeans-cover.jpg" class="thumbnail-image card-img" style="height: 250px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-La méthode des Kmeans
-</h5>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Kmeans'); return false;">
-Kmeans
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Clustering'); return false;">
-Clustering
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ML'); return false;">
-ML
-</div>
-</div>
-<div class="card-text listing-description">
-En analyse de données, il est parfois très utile de constituer des groupes homogènes d’observations c’est a dire d’individus partageant des similarités. La méthode des…
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Ousmane Ouedraogo
-</div>
-<div class="listing-date">
-12 oct. 2022
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="3" data-categories="Blogging,Quarto,Github" data-listing-date-sort="1664236800000" data-listing-file-modified-sort="1727544747941" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="692">
-<a href="./posts/bienvenue.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./posts/bienvenue-files/andrew-neel-unsplash.jpg" class="thumbnail-image card-img" style="height: 250px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Bienvenue sur mon blog
-</h5>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Blogging'); return false;">
-Blogging
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Quarto'); return false;">
-Quarto
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Github'); return false;">
-Github
-</div>
-</div>
-<div class="card-text listing-description">
-Tenir un blog était un grand souhait du moment où apprendre et partager de nouvelles choses fait partie intégrante de ma personnalité. Aujourdui c’est chose faite !
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Ousmane Ouedraogo
-</div>
-<div class="listing-date">
-27 sept. 2022
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-Aucun article correspondant
-</div>
-</div></main> <!-- /main -->
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<section id="contexte" class="level2">
+<h2 class="anchored" data-anchor-id="contexte">Contexte</h2>
+<p>Sous Python, l’importation d’une bibliothèque ne rend pas ses fonctions directement disponibles dans l’espace de noms global. Par exemple, après <code>import pandas</code>, il faut explicitement utiliser <code>pandas.read_csv()</code> ou créer un alias avec <code>import pandas as pd</code> pour utiliser <code>pd.read_csv()</code>. Cette approche stricte force les développeurs à être explicites sur l’origine des fonctions utilisées, évitant ainsi les ambiguïtés et les conflits de noms.</p>
+<p>En revanche, R adopte une approche plus permissive avec sa fonction <code>library()</code>. Quand on charge une bibliothèque comme <code>readr</code> ou <code>tidyverse</code>, leurs fonctions deviennent immédiatement disponibles dans l’espace de noms global. Si <code>read_csv()</code> existe dans plusieurs bibliothèques chargées, cela peut créer des conflits et des comportements inattendus. La solution consiste alors à utiliser la notation explicite <code>readr::read_csv()</code>.</p>
+</section>
+<section id="limportance-de-lexplicite-dans-les-projets-denvergure" class="level2">
+<h2 class="anchored" data-anchor-id="limportance-de-lexplicite-dans-les-projets-denvergure">L’importance de l’explicite dans les projets d’envergure</h2>
+<p>Pour les projets d’envergure, la traçabilité et la maintenabilité du code deviennent des enjeux critiques. L’approche Python, qui force à expliciter l’origine des fonctions, présente plusieurs avantages majeurs :</p>
+<ol type="1">
+<li><p>La clarté du code : En voyant directement <code>pd.read_csv()</code>, tout développeur peut immédiatement identifier la source de la fonction utilisée.</p></li>
+<li><p>La réduction des conflits : L’utilisation explicite des namespaces minimise les risques de conflits entre fonctions de même nom provenant de différentes bibliothèques.</p></li>
+<li><p>La stabilité face aux mises à jour : L’ordre de chargement des bibliothèques n’influence pas le comportement du code, contrairement à R où cet ordre peut affecter quelle version d’une fonction est effectivement utilisée.</p></li>
+<li><p>La facilité de maintenance : Pour les nouveaux développeurs rejoignant le projet, le code est plus facile à comprendre car les dépendances sont clairement visibles.</p></li>
+</ol>
+</section>
+<section id="bonnes-pratiques-recommandées" class="level2">
+<h2 class="anchored" data-anchor-id="bonnes-pratiques-recommandées">Bonnes pratiques recommandées</h2>
+<p>Même sous R, il est fortement conseillé d’adopter des pratiques similaires à Python pour les projets professionnels :</p>
+<ul>
+<li>Toujours utiliser la notation explicite (exemple : <code>readr::read_csv()</code>) pour les fonctions clés du projet</li>
+<li>Documenter l’ordre de chargement des bibliothèques</li>
+<li>Éviter de surcharger l’environnement global avec trop de bibliothèques</li>
+<li>Privilégier des imports ciblés plutôt que des imports massifs (comme avec <code>tidyverse</code>)</li>
+</ul>
+<p>Cette rigueur initiale dans l’écriture du code permet d’économiser un temps précieux lors de la maintenance et de l’évolution du projet, tout en facilitant la collaboration entre développeurs.</p>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>En conclusion, bien que R offre une flexibilité appréciable pour le prototypage rapide et l’analyse exploratoire, l’adoption de conventions strictes inspirées de Python concernant les espaces de noms devient cruciale dès que le projet prend de l’ampleur. Cette discipline de code n’est pas une contrainte mais un investissement pour la pérennité et la scalabilité des projets data.</p>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{ouedraogo2025,
+  author = {Ouedraogo, Ousmane},
+  title = {Namespaces, R versus Python},
+  date = {2025-01-06},
+  url = {https://oousmane.github.io/programming-is-thinking},
+  langid = {fr}
+}
+</code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">Veuillez citer ce travail comme suit&nbsp;:</div><div id="ref-ouedraogo2025" class="csl-entry quarto-appendix-citeas" role="listitem">
+Ouedraogo, Ousmane. 2025. <span>“Namespaces, R versus Python.”</span>
+January 6, 2025. <a href="https://oousmane.github.io/programming-is-thinking">https://oousmane.github.io/programming-is-thinking</a>.
+</div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1006,7 +839,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <p>Réalisé avec <a href="https://quarto.org"><img src="https://quarto.org/quarto.png" class="img-fluid" alt="Quarto" width="65"></a></p>
 </div>   
     <div class="nav-footer-center">
-<p><a href="./Licence.html">Licence</a></p>
+<p><a href="Licence.qmd">Licence</a></p>
 <div class="cookie-consent-footer"><a href="#" id="open_preferences_center">Cookie Preferences</a></div></div>
     <div class="nav-footer-right">
 <p><a href="https://github.com/oousmane/quarto-blog/"><i class="fa-brands fa-github" aria-label="github"></i></a></p>

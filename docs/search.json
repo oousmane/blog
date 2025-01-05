@@ -4,7 +4,7 @@
     "href": "blog.html",
     "title": "Blog personel",
     "section": "",
-    "text": "Bienvenue sur mon blog dont je suis ravi de partager avec vous. Pour ne rien ratez de mes posts à venir, vous pouvez souscrire à ma Newsletter.\n\nOusmane’s Newsletter\n\n\n\n\n\n\n\n   \n     \n     \n       Trier par\n       Ordre par défaut\n         \n          Titre\n        \n         \n          Date - Le plus ancien\n        \n         \n          Date - Le plus récent\n        \n         \n          Auteur·rice\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nProgrammer c’est réfléchir et non (juste) rédiger des lignes de code\n\n\n\nProgrammation\n\n\nCodage\n\n\nAlgorithmes\n\n\n\nLa programmation ne se résume pas à rédiger des lignes de code. C’est un processus logique et systématique qui transforme des idées abstraites en instructions…\n\n\n\nOusmane Ouedraogo\n\n\n11 sept. 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLa méthode des Kmeans\n\n\n\nKmeans\n\n\nClustering\n\n\nML\n\n\n\nEn analyse de données, il est parfois très utile de constituer des groupes homogènes d’observations c’est a dire d’individus partageant des similarités. La méthode des…\n\n\n\nOusmane Ouedraogo\n\n\n12 oct. 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBienvenue sur mon blog\n\n\n\nBlogging\n\n\nQuarto\n\n\nGithub\n\n\n\nTenir un blog était un grand souhait du moment où apprendre et partager de nouvelles choses fait partie intégrante de ma personnalité. Aujourdui c’est chose faite !\n\n\n\nOusmane Ouedraogo\n\n\n27 sept. 2022\n\n\n\n\n\n\n\n\nAucun article correspondant"
+    "text": "Bienvenue sur mon blog dont je suis ravi de partager avec vous. Pour ne rien ratez de mes posts à venir, vous pouvez souscrire à ma Newsletter.\n\nOusmane’s Newsletter\n\n\n\n\n\n\n\n   \n     \n     \n       Trier par\n       Ordre par défaut\n         \n          Titre\n        \n         \n          Date - Le plus ancien\n        \n         \n          Date - Le plus récent\n        \n         \n          Auteur·rice\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nNamespaces, R versus Python\n\n\n\nNamespaces\n\n\nR\n\n\nPython\n\n\n\nLa gestion des espaces de noms (namespaces) constitue une différence fondamentale entre Python et R, avec des implications importantes pour la qualité et la maintenabilité…\n\n\n\nOusmane Ouedraogo\n\n\n6 janv. 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProgrammer c’est réfléchir et non (juste) rédiger des lignes de code\n\n\n\nProgrammation\n\n\nCodage\n\n\nAlgorithmes\n\n\n\nLa programmation ne se résume pas à rédiger des lignes de code. C’est un processus logique et systématique qui transforme des idées abstraites en instructions…\n\n\n\nOusmane Ouedraogo\n\n\n11 sept. 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLa méthode des Kmeans\n\n\n\nKmeans\n\n\nClustering\n\n\nML\n\n\n\nEn analyse de données, il est parfois très utile de constituer des groupes homogènes d’observations c’est a dire d’individus partageant des similarités. La méthode des…\n\n\n\nOusmane Ouedraogo\n\n\n12 oct. 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBienvenue sur mon blog\n\n\n\nBlogging\n\n\nQuarto\n\n\nGithub\n\n\n\nTenir un blog était un grand souhait du moment où apprendre et partager de nouvelles choses fait partie intégrante de ma personnalité. Aujourdui c’est chose faite !\n\n\n\nOusmane Ouedraogo\n\n\n27 sept. 2022\n\n\n\n\n\n\n\n\nAucun article correspondant"
   },
   {
     "objectID": "formations.html",
@@ -173,5 +173,40 @@
     "title": "Curriculum Vitae",
     "section": "",
     "text": "Download PDF file."
+  },
+  {
+    "objectID": "posts/Manage-R-namespaces.html",
+    "href": "posts/Manage-R-namespaces.html",
+    "title": "Namespaces, R versus Python",
+    "section": "",
+    "text": "Sous Python, l’importation d’une bibliothèque ne rend pas ses fonctions directement disponibles dans l’espace de noms global. Par exemple, après import pandas, il faut explicitement utiliser pandas.read_csv() ou créer un alias avec import pandas as pd pour utiliser pd.read_csv(). Cette approche stricte force les développeurs à être explicites sur l’origine des fonctions utilisées, évitant ainsi les ambiguïtés et les conflits de noms.\nEn revanche, R adopte une approche plus permissive avec sa fonction library(). Quand on charge une bibliothèque comme readr ou tidyverse, leurs fonctions deviennent immédiatement disponibles dans l’espace de noms global. Si read_csv() existe dans plusieurs bibliothèques chargées, cela peut créer des conflits et des comportements inattendus. La solution consiste alors à utiliser la notation explicite readr::read_csv()."
+  },
+  {
+    "objectID": "posts/Manage-R-namespaces.html#limportance-de-lexplicite-dans-les-projets-denvergure",
+    "href": "posts/Manage-R-namespaces.html#limportance-de-lexplicite-dans-les-projets-denvergure",
+    "title": "Namespaces, R versus Python",
+    "section": "L’importance de l’explicite dans les projets d’envergure",
+    "text": "L’importance de l’explicite dans les projets d’envergure\nPour les projets d’envergure, la traçabilité et la maintenabilité du code deviennent des enjeux critiques. L’approche Python, qui force à expliciter l’origine des fonctions, présente plusieurs avantages majeurs :\n\nLa clarté du code : En voyant directement pd.read_csv(), tout développeur peut immédiatement identifier la source de la fonction utilisée.\nLa réduction des conflits : L’utilisation explicite des namespaces minimise les risques de conflits entre fonctions de même nom provenant de différentes bibliothèques.\nLa stabilité face aux mises à jour : L’ordre de chargement des bibliothèques n’influence pas le comportement du code, contrairement à R où cet ordre peut affecter quelle version d’une fonction est effectivement utilisée.\nLa facilité de maintenance : Pour les nouveaux développeurs rejoignant le projet, le code est plus facile à comprendre car les dépendances sont clairement visibles."
+  },
+  {
+    "objectID": "posts/Manage-R-namespaces.html#bonnes-pratiques-recommandées",
+    "href": "posts/Manage-R-namespaces.html#bonnes-pratiques-recommandées",
+    "title": "Namespaces, R versus Python",
+    "section": "Bonnes pratiques recommandées",
+    "text": "Bonnes pratiques recommandées\nMême sous R, il est fortement conseillé d’adopter des pratiques similaires à Python pour les projets professionnels :\n\nToujours utiliser la notation explicite (exemple : readr::read_csv()) pour les fonctions clés du projet\nDocumenter l’ordre de chargement des bibliothèques\nÉviter de surcharger l’environnement global avec trop de bibliothèques\nPrivilégier des imports ciblés plutôt que des imports massifs (comme avec tidyverse)\n\nCette rigueur initiale dans l’écriture du code permet d’économiser un temps précieux lors de la maintenance et de l’évolution du projet, tout en facilitant la collaboration entre développeurs."
+  },
+  {
+    "objectID": "posts/Manage-R-namespaces.html#contexte",
+    "href": "posts/Manage-R-namespaces.html#contexte",
+    "title": "Namespaces, R versus Python",
+    "section": "",
+    "text": "Sous Python, l’importation d’une bibliothèque ne rend pas ses fonctions directement disponibles dans l’espace de noms global. Par exemple, après import pandas, il faut explicitement utiliser pandas.read_csv() ou créer un alias avec import pandas as pd pour utiliser pd.read_csv(). Cette approche stricte force les développeurs à être explicites sur l’origine des fonctions utilisées, évitant ainsi les ambiguïtés et les conflits de noms.\nEn revanche, R adopte une approche plus permissive avec sa fonction library(). Quand on charge une bibliothèque comme readr ou tidyverse, leurs fonctions deviennent immédiatement disponibles dans l’espace de noms global. Si read_csv() existe dans plusieurs bibliothèques chargées, cela peut créer des conflits et des comportements inattendus. La solution consiste alors à utiliser la notation explicite readr::read_csv()."
+  },
+  {
+    "objectID": "posts/Manage-R-namespaces.html#conclusion",
+    "href": "posts/Manage-R-namespaces.html#conclusion",
+    "title": "Namespaces, R versus Python",
+    "section": "Conclusion",
+    "text": "Conclusion\nEn conclusion, bien que R offre une flexibilité appréciable pour le prototypage rapide et l’analyse exploratoire, l’adoption de conventions strictes inspirées de Python concernant les espaces de noms devient cruciale dès que le projet prend de l’ampleur. Cette discipline de code n’est pas une contrainte mais un investissement pour la pérennité et la scalabilité des projets data."
   }
 ]
