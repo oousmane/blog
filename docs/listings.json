@@ -2,6 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/presentation-afribat.html",
       "/posts/Manage-R-namespaces.html",
       "/posts/programming-is-thinking.html",
       "/posts/kmeans.html",

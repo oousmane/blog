@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Ousmane Ouedraogo">
-<meta name="description" content="La gestion des espaces de noms (namespaces) constitue une différence fondamentale entre Python et R, avec des implications importantes pour la qualité et la maintenabilité du code.">
+<meta name="description" content="{afribat} est un data package R, conçu pour soutenir la recherche sur la biodiversité en intégrant un ensemble complet de données sur les chauves-souris africaines sous forme de. Construit pour simplifier et automatiser les workflows, {afribat} répond aux défis de reproductibilité dans les études écologiques en offrant un accès programmatique direct à des données de haute qualité publiées dans Nature.">
 
-<title>Namespaces, R versus Python</title>
+<title>Présentation de {afribat}</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -47,6 +81,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-dark-c6880cc87a714cb2260243966aad825b.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -95,12 +132,12 @@ cookieconsent.run({
 
 
 <link rel="stylesheet" href="../styles/styles.css">
-<meta property="og:title" content="Namespaces, R versus Python">
-<meta property="og:description" content="La gestion des espaces de noms (namespaces) constitue une différence fondamentale entre Python et R, avec des implications importantes pour la qualité et la maintenabilité du code.">
-<meta property="og:image" content="namespaces/cover.jpg">
-<meta name="twitter:title" content="Namespaces, R versus Python">
-<meta name="twitter:description" content="La gestion des espaces de noms (namespaces) constitue une différence fondamentale entre Python et R, avec des implications importantes pour la qualité et la maintenabilité du code.">
-<meta name="twitter:image" content="namespaces/cover.jpg">
+<meta property="og:title" content="Présentation de {afribat}">
+<meta property="og:description" content="{afribat} est un data package R, conçu pour soutenir la recherche sur la biodiversité en intégrant un ensemble complet de données sur les chauves-souris africaines sous forme de. Construit pour simplifier et automatiser les workflows, {afribat} répond aux défis de reproductibilité dans les études écologiques en offrant un accès programmatique direct à des données de haute qualité publiées dans Nature.">
+<meta property="og:image" content="namespaces/African-bats.jpg">
+<meta name="twitter:title" content="Présentation de {afribat}">
+<meta name="twitter:description" content="{afribat} est un data package R, conçu pour soutenir la recherche sur la biodiversité en intégrant un ensemble complet de données sur les chauves-souris africaines sous forme de. Construit pour simplifier et automatiser les workflows, {afribat} répond aux défis de reproductibilité dans les études écologiques en offrant un accès programmatique direct à des données de haute qualité publiées dans Nature.">
+<meta name="twitter:image" content="namespaces/African-bats.jpg">
 <meta name="twitter:creator" content="@oousmane_11">
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -166,17 +203,17 @@ cookieconsent.run({
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Namespaces, R versus Python</h1>
-            <p class="subtitle lead">La gestion des namespaces et ses implications sous R pour la lisibilité du code</p>
+      <h1 class="title">Présentation de {afribat}</h1>
+            <p class="subtitle lead">Un data package des chauves-souris africaines pour améliorer la reproductibilité et l’efficacité en recherche sur la biodiversité</p>
                   <div>
         <div class="description">
-          <p>La gestion des espaces de noms (namespaces) constitue une différence fondamentale entre Python et R, avec des implications importantes pour la qualité et la maintenabilité du code.</p>
+          <p>{afribat} est un data package R, conçu pour soutenir la recherche sur la biodiversité en intégrant un ensemble complet de données sur les chauves-souris africaines sous forme de. Construit pour simplifier et automatiser les workflows, {afribat} répond aux défis de reproductibilité dans les études écologiques en offrant un accès programmatique direct à des données de haute qualité publiées dans Nature.</p>
         </div>
       </div>
                           <div class="quarto-categories">
-                <div class="quarto-category">Namespaces</div>
+                <div class="quarto-category">Data</div>
                 <div class="quarto-category">R</div>
-                <div class="quarto-category">Python</div>
+                <div class="quarto-category">Biodiversité</div>
               </div>
                   </div>
   </div>
@@ -194,7 +231,7 @@ cookieconsent.run({
       <div>
       <div class="quarto-title-meta-heading">Date de publication</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">6 janvier 2025</p>
+        <p class="date">11 janvier 2025</p>
       </div>
     </div>
     
@@ -210,10 +247,11 @@ cookieconsent.run({
     <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#contexte" id="toc-contexte" class="nav-link active" data-scroll-target="#contexte">Contexte</a></li>
-  <li><a href="#limportance-de-lexplicite-dans-les-projets-denvergure" id="toc-limportance-de-lexplicite-dans-les-projets-denvergure" class="nav-link" data-scroll-target="#limportance-de-lexplicite-dans-les-projets-denvergure">L’importance de l’explicite dans les projets d’envergure</a></li>
-  <li><a href="#bonnes-pratiques-recommandées" id="toc-bonnes-pratiques-recommandées" class="nav-link" data-scroll-target="#bonnes-pratiques-recommandées">Bonnes pratiques recommandées</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#prérequis-pour-reproduire-les-analyses" id="toc-prérequis-pour-reproduire-les-analyses" class="nav-link" data-scroll-target="#prérequis-pour-reproduire-les-analyses">Prérequis pour reproduire les analyses</a></li>
+  <li><a href="#visualisation-de-distribution-géographique-des-espèces" id="toc-visualisation-de-distribution-géographique-des-espèces" class="nav-link" data-scroll-target="#visualisation-de-distribution-géographique-des-espèces">Visualisation de distribution géographique des espèces</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#remerciements" id="toc-remerciements" class="nav-link" data-scroll-target="#remerciements">Remerciements</a></li>
   </ul>
 </nav>
     </div>
@@ -224,49 +262,199 @@ cookieconsent.run({
 
 
 
-<section id="contexte" class="level2">
-<h2 class="anchored" data-anchor-id="contexte">Contexte</h2>
-<p>Sous Python, l’importation d’une bibliothèque ne rend pas ses fonctions directement disponibles dans l’espace de noms global. Par exemple, après <code>import pandas</code>, il faut explicitement utiliser <code>pandas.read_csv()</code> ou créer un alias avec <code>import pandas as pd</code> pour utiliser <code>pd.read_csv()</code>. Cette approche stricte force les développeurs à être explicites sur l’origine des fonctions utilisées, évitant ainsi les ambiguïtés et les conflits de noms.</p>
-<p>En revanche, R adopte une approche plus permissive avec sa fonction <code>library()</code>. Quand on charge une bibliothèque comme <code>readr</code> ou <code>tidyverse</code>, leurs fonctions deviennent immédiatement disponibles dans l’espace de noms global. Si <code>read_csv()</code> existe dans plusieurs bibliothèques chargées, cela peut créer des conflits et des comportements inattendus. La solution consiste alors à utiliser la notation explicite <code>readr::read_csv()</code>.</p>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>L’Afrique est un foyer de biodiversité parmi les plus riches au monde, et les chauves-souris y occupent une place centrale, jouant un rôle clé dans la pollinisation, le contrôle des insectes nuisibles et la dispersion des graines. Cependant, la recherche sur la biodiversité dans cette région se heurte souvent à des défis liés à l’accessibilité des données, à la reproductibilité et à l’intégration des workflows. Pour répondre à ces problématiques, j’ai développé&nbsp;<strong>{afribat}</strong>, un data package R conçu pour contribuer à la recherche sur les chauves-souris africaines tout en favorisant la reproductibilité et l’efficacité.</p>
+<p>{afribat} est basé sur le jeu de données publié par Monadjem et al.&nbsp;(2024) dans&nbsp;<em>Scientific Data</em>&nbsp;(<em>Nature</em>) . Ce jeu de données, rigoureusement élaboré, constitue une ressource essentielle pour les chercheurs. En embarquant ces données directement dans le package, {afribat} élimine la gestion fastidieuse des fichiers CSV et facilite une intégration fluide dans les workflows. De plus, le package comprend des fonctions utilitaires pour calculer des indices de biodiversité tels que la richesse spécifique et la diversité de Shannon. Ainsi, ce package se veut être solution pour étudier les distributions des espèces, leurs métriques de diversité, et bien plus encore. Avec {afribat}, les chercheurs peuvent se concentrer sur la génération d’insights pour soutenir les efforts de conservation tout en garantissant des workflows transparents et reproductibles.</p>
 </section>
-<section id="limportance-de-lexplicite-dans-les-projets-denvergure" class="level2">
-<h2 class="anchored" data-anchor-id="limportance-de-lexplicite-dans-les-projets-denvergure">L’importance de l’explicite dans les projets d’envergure</h2>
-<p>Pour les projets d’envergure, la traçabilité et la maintenabilité du code deviennent des enjeux critiques. L’approche Python, qui force à expliciter l’origine des fonctions, présente plusieurs avantages majeurs :</p>
-<ol type="1">
-<li><p>La clarté du code : En voyant directement <code>pd.read_csv()</code>, tout développeur peut immédiatement identifier la source de la fonction utilisée.</p></li>
-<li><p>La réduction des conflits : L’utilisation explicite des namespaces minimise les risques de conflits entre fonctions de même nom provenant de différentes bibliothèques.</p></li>
-<li><p>La stabilité face aux mises à jour : L’ordre de chargement des bibliothèques n’influence pas le comportement du code, contrairement à R où cet ordre peut affecter quelle version d’une fonction est effectivement utilisée.</p></li>
-<li><p>La facilité de maintenance : Pour les nouveaux développeurs rejoignant le projet, le code est plus facile à comprendre car les dépendances sont clairement visibles.</p></li>
-</ol>
+<section id="prérequis-pour-reproduire-les-analyses" class="level2">
+<h2 class="anchored" data-anchor-id="prérequis-pour-reproduire-les-analyses">Prérequis pour reproduire les analyses</h2>
+<p>Pour suivre et reproduire les analyses présentées dans ce blog, vous allez créer un projet structuré nommé&nbsp;<strong><code>intro-afribat/</code></strong>. Cette organisation permettra une gestion claire des données et des scripts tout en facilitant la reproductibilité.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>intro<span class="sc">-</span>afribat<span class="sc">/</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>├── data<span class="sc">/</span>                <span class="co"># Répertoire pour stocker les données</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>├── README.md            <span class="co"># Description du projet</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>├── intro<span class="sc">-</span>afribat.Rproj  <span class="co"># Fichier de projet RStudio</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Assurez-vous également d’installer tous les packages nécessaires pour exécuter les analyses :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Installer les packages requis</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"devtools"</span>, <span class="st">"tidyverse"</span>, <span class="st">"sf"</span>))</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Installer afribat depuis GitHub</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"oousmane/afribat"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Nous allons, pour l’exemple utiliser les données cartographiques de l’Angola via GADM pour filtrer les données et calculer quelques indices de biodiversités. Le code ci-après permet de télecharge le fichier geopackage nommé `gadm41_AGO.gpkg` dans data/.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">url =</span> <span class="st">"https://geodata.ucdavis.edu/gadm/gadm4.1/gpkg/gadm41_AGO.gpkg"</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">destfile =</span> <span class="st">"data/gadm41_AGO.gpkg"</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Une visualisation rapide des données</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>ago <span class="ot">&lt;-</span> <span class="fu">read_sf</span>(<span class="st">"data/gadm41_AGO.gpkg"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in CPL_read_ogr(dsn, layer, query, as.character(options), quiet, :
+automatically selected the first layer in a data source containing more than
+one.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> ago, <span class="at">color =</span> <span class="st">"black"</span>,<span class="at">linewidth =</span> <span class="dv">1</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="presentation-afribat_files/figure-html/unnamed-chunk-3-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="presentation-afribat_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
-<section id="bonnes-pratiques-recommandées" class="level2">
-<h2 class="anchored" data-anchor-id="bonnes-pratiques-recommandées">Bonnes pratiques recommandées</h2>
-<p>Même sous R, il est fortement conseillé d’adopter des pratiques similaires à Python pour les projets professionnels :</p>
-<ul>
-<li>Toujours utiliser la notation explicite (exemple : <code>readr::read_csv()</code>) pour les fonctions clés du projet</li>
-<li>Documenter l’ordre de chargement des bibliothèques</li>
-<li>Éviter de surcharger l’environnement global avec trop de bibliothèques</li>
-<li>Privilégier des imports ciblés plutôt que des imports massifs (comme avec <code>tidyverse</code>)</li>
-</ul>
-<p>Cette rigueur initiale dans l’écriture du code permet d’économiser un temps précieux lors de la maintenance et de l’évolution du projet, tout en facilitant la collaboration entre développeurs.</p>
+<section id="visualisation-de-distribution-géographique-des-espèces" class="level2">
+<h2 class="anchored" data-anchor-id="visualisation-de-distribution-géographique-des-espèces">Visualisation de distribution géographique des espèces</h2>
+<p>L’un des points forts de {afribat} est sa capacité à faciliter l’analyse et la visualisation des données géoréferencées, permettant de mieux comprendre la répartition des espèces de chauves-souris en Afrique. Une visualisation rapide de toute la base de données est produites sur la</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(afribat)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> afribat<span class="sc">::</span>afribats_sf</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span>df, <span class="fu">aes</span> (<span class="at">color =</span> species))<span class="sc">+</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_d</span>()<span class="sc">+</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="presentation-afribat_files/figure-html/unnamed-chunk-4-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="presentation-afribat_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p>L’utilisation du format&nbsp;<strong>sf</strong>&nbsp;(Simple Features) pour les données {afribat} offre des possibilités étendues pour les analyses spatiales en R, en tirant parti de la puissance des packages du&nbsp;<strong>tidyverse</strong>. Par exemple, la fonction&nbsp;<code>sf::st_filter()</code>facilite la sélection des données d’une zone géographique spécifique, comme l’Angola. En parallèle, les outils robustes de&nbsp;<strong>dplyr</strong>&nbsp;(<code>group_by()</code>,&nbsp;<code>summarise()</code>,&nbsp;<code>filter()</code>) et de&nbsp;<strong>tidyr</strong>&nbsp;permettent des manipulations avancées et flexibles, incluant des jointures spatiales avec d’autres couches de données environnementales. Cette combinaison entre simplicité et puissance ouvre la voie à des analyses géospatiales intégrées et approfondies.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(afribat)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> afribat<span class="sc">::</span>afribats_sf</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>ago <span class="ot">&lt;-</span> <span class="fu">read_sf</span>(<span class="st">"data/gadm41_AGO.gpkg"</span>)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>ago_df <span class="ot">&lt;-</span> <span class="fu">st_filter</span>(<span class="at">x=</span>df,<span class="at">y=</span>ago,<span class="at">.predicate =</span> st_intersects)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>ago_df</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Simple feature collection with 350 features and 11 fields
+Geometry type: POINT
+Dimension:     XY
+Bounding box:  xmin: 12.13 ymin: -17.93 xmax: 23.38 ymax: -5.13
+Geodetic CRS:  WGS 84
+# A tibble: 350 × 12
+   family       genus species museum date        year country location reference
+ * &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;  &lt;date&gt;     &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt;    
+ 1 Emballonuri… Cole… afra    &lt;NA&gt;   NA            NA Angola  Benguela Crawford…
+ 2 Emballonuri… Cole… afra    IICA5… NA            NA Angola  Novo Re… Monadjem…
+ 3 Emballonuri… Sacc… peli    &lt;NA&gt;   NA            NA Angola  Lago Ca… Crawford…
+ 4 Emballonuri… Taph… maurit… IICA45 1960-12-28  1960 Angola  Luanda   Monadjem…
+ 5 Emballonuri… Taph… maurit… &lt;NA&gt;   NA            NA Angola  Benguela Crawford…
+ 6 Emballonuri… Taph… maurit… &lt;NA&gt;   NA            NA Angola  Caiundo  Crawford…
+ 7 Emballonuri… Taph… maurit… &lt;NA&gt;   NA            NA Angola  Catumbe… Crawford…
+ 8 Emballonuri… Taph… maurit… &lt;NA&gt;   NA            NA Angola  Dundo    Crawford…
+ 9 Emballonuri… Taph… maurit… &lt;NA&gt;   NA            NA Angola  Duque d… Crawford…
+10 Emballonuri… Taph… maurit… &lt;NA&gt;   NA            NA Angola  Humbe    Crawford…
+# ℹ 340 more rows
+# ℹ 3 more variables: holotype &lt;chr&gt;, checked &lt;chr&gt;, geometry &lt;POINT [°]&gt;</code></pre>
+</div>
+</div>
+<p>Une fois les données filtrées sur l’Angola, nous pouvons produire une carte de la distribution des espèces de chauves-souris</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(afribat)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> afribat<span class="sc">::</span>afribats_sf</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>ago <span class="ot">&lt;-</span> <span class="fu">read_sf</span>(<span class="st">"data/gadm41_AGO.gpkg"</span>)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>ago_df <span class="ot">&lt;-</span> <span class="fu">st_filter</span>(<span class="at">x=</span>df,<span class="at">y=</span>ago,<span class="at">.predicate =</span> st_intersects)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span>ago)<span class="sc">+</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> ago_df,<span class="at">color=</span> <span class="st">"blue"</span>, <span class="at">size =</span> <span class="dv">3</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="presentation-afribat_files/figure-html/unnamed-chunk-6-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="presentation-afribat_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Comme mentionné précédemment, {afribat} ne se limite pas à embarquer des données. Le package propose également des fonctions utilitaires conçues pour calculer divers indices de biodiversité, facilitant ainsi les analyses écologiques. Pour en savoir davantage sur ses fonctionnalités et son utilisation, consultez la documentation <a href="https://oousmane.github.io/afribat" class="uri">https://oousmane.github.io/afribat</a></p>
+<p>Indice de Shannon-Weiner</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shannon_weiner</span>(ago_df<span class="sc">$</span>species)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.644943</code></pre>
+</div>
+</div>
+<p><br>
+Une meta fonction pour calculer en une fois tous les indices présentement disponibles</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>biodiv_indices <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  a <span class="ot">&lt;-</span> <span class="fu">shannon_weiner</span>(x)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  b <span class="ot">&lt;-</span> <span class="fu">evenness</span>(x)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  c <span class="ot">&lt;-</span> <span class="fu">simpson</span>(x)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  d <span class="ot">&lt;-</span> <span class="fu">margalef</span>(x)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">list</span>(</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">marglef =</span> d,</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">shannon_weiner =</span> a,</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">simpson =</span> c,</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">evenness =</span> b</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="fu">biodiv_indices</span>(ago_df<span class="sc">$</span>species)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$marglef
+[1] 10.41323
+
+$shannon_weiner
+[1] 3.644943
+
+$simpson
+[1] 26.75841
+
+$evenness
+[1] 0.8831656</code></pre>
+</div>
+</div>
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>En conclusion, bien que R offre une flexibilité appréciable pour le prototypage rapide et l’analyse exploratoire, l’adoption de conventions strictes inspirées de Python concernant les espaces de noms devient cruciale dès que le projet prend de l’ampleur. Cette discipline de code n’est pas une contrainte mais un investissement pour la pérennité et la scalabilité des projets data.</p>
+<p>En proposant les données sous format {<code>sf}</code>, {afribat} offre une flexibilité exceptionnelle pour les analyses géospatiales. Que vous souhaitiez explorer les distributions d’espèces, effectuer des jointures spatiales, ou filtrer des données selon des régions d’intérêt, Afribat simplifie ces tâches tout en intégrant des outils modernes comme {dplyr} et {ggplot2}.&nbsp; <strong>Essayez le dès aujourd’hui et découvrez tout le potentiel des analyses reproductibles en écologie !</strong></p>
+</section>
+<section id="remerciements" class="level2">
+<h2 class="anchored" data-anchor-id="remerciements">Remerciements</h2>
+<p>Je tiens à remercier Idrissa Ouedraogo et Parfait Thiombiano pour leur relecture des formules des indices de biodiversité, ainsi que les auteurs de African Bat Database pour leur précieuse contribution à la recherche en écologie particulièrement dans l’étude et la conservation des chauves-souris.</p>
 
 
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{ouedraogo2025,
   author = {Ouedraogo, Ousmane},
-  title = {Namespaces, R versus Python},
-  date = {2025-01-06},
+  title = {Présentation de \{afribat\}},
+  date = {2025-01-11},
   url = {https://oousmane.github.io/programming-is-thinking},
   langid = {fr}
 }
 </code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">Veuillez citer ce travail comme suit&nbsp;:</div><div id="ref-ouedraogo2025" class="csl-entry quarto-appendix-citeas" role="listitem">
-Ouedraogo, Ousmane. 2025. <span>“Namespaces, R versus Python.”</span>
-January 6, 2025. <a href="https://oousmane.github.io/programming-is-thinking">https://oousmane.github.io/programming-is-thinking</a>.
+Ouedraogo, Ousmane. 2025. <span>“Présentation de {afribat}.”</span>
+January 11, 2025. <a href="https://oousmane.github.io/programming-is-thinking">https://oousmane.github.io/programming-is-thinking</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -843,6 +1031,38 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
